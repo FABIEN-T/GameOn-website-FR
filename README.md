@@ -1,3 +1,5 @@
+
+https://fabien-t.github.io/GameOn-website-FR/starterOnly
 # Projet GameOn
 1. Forkez ce repo ;
 2. Il est conseillé d'utiliser VisualStudio Code et vous pouvez utiliser Docker, mais ce n'est pas obligatoire ;
