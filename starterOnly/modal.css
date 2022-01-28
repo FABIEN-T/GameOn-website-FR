@@ -136,7 +136,8 @@ main {
 }
 
 .modal-btn {
-  font-size: 145%;
+  /* font-size: 145%; */
+  font-size: 25px;
   background: #fe142f;
   display: flex;
   margin: auto;
@@ -202,6 +203,30 @@ main {
   color: #fff;
   padding-top: 10px;
 }
+
+.bground-thanks {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
+/* .content-thanks {
+  margin: 5% auto;
+  width: 100%;
+  max-width: 500px;
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: #fff;
+  padding-top: 10px;
+} */
 
 .modal-body {
   padding: 15px 8%;
@@ -348,20 +373,32 @@ input[data-error]::after {
   background-color: #4714fe;
 }
 
-
-
-.btn-submit,
 .btn-signup {
   background: #fe142f;
   display: block;
   margin: 0 auto;
-  border-radius: 7px;
+  border-radius: 8px;
   font-size: 1rem;
   padding: 12px 82px;
   color: #fff;
   cursor: pointer;
   border: 0;
 }
+
+.btn-submit, .btn-closeThanks {
+  background: #fe142f;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+  font-size: 14px;
+  /* padding: 12px 82px; */
+  width: 182px;
+  height: 40px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+}
+
 /* custom select styles */
 .custom-select {
   position: relative;

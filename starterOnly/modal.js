@@ -13,8 +13,12 @@ function editNav() {
 
 // DOM Elements
 const modalbg = document.querySelector(".bground");
+const modalbgThanks = document.querySelector(".bground-thanks");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+const closeModalBtn = document.querySelector(".close");
+const closeModalCrossThanks = document.querySelector(".closeThanks");
+const closeModalBtnThanks = document.querySelector(".btn-closeThanks");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
@@ -24,36 +28,34 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-
-
 //****************************************************************************************
 //********************************** Mon Travail *****************************************
 //****************************************************************************************
 
+//************************************************************
+//********* Ouverture de le Fenêtre de remerciements *********
+//************************************************************
+
+function launchModalThanks() {
+  modalbgThanks.style.display = "block";
+}
 
 //******************************************************
 //********* Fermeture de la Modal par la croix *********
 //******************************************************
 
-
-// const checkboxes = document.querySelectorAll(".checkbox-input");
-
-// checkboxes.forEach(checkbox => checkbox.addEventListener('click', () => {
-//   console.log('ça clique')
-// }))
-
-// CONST closemodal
-const closeModalBtn = document.querySelector(".close");
-
 // close modal event
-closeModalBtn.addEventListener('click', ()=> {console.log('event closemodal')})
-closeModalBtn.addEventListener('click', closeModal)
+closeModalBtn.addEventListener('click', ()=> {console.log('event closemodal')});
+closeModalBtn.addEventListener('click', closeModal);
+
 
 // close modal form
 function closeModal() {
   modalbg.style.display = "none";
 }
-
+function closeModalThanks() {
+  modalbgThanks.style.display = "none";
+}
 
 
 
@@ -266,39 +268,77 @@ constForm.addEventListener('submit', (e) => {
 
   console.log(firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
   if (firstNameValue && lastNameValue && emailValue && birthDateValue && quantityValue && radioButtonValue && useCheckValue) {
-    // const verifiedValue = {
-    //   verifiedFirstName : firstNameValue,
-    //   verifedlastName : lastNameValue,
-    //   verifiedEmailValue : emailValue,
-    //   verifiedBirthDateValue : birthDateValue,
-    //   verifiedQuantityValue : quantityValue,
-    //   verifiedRadioButtonValue : radioButtonValue,
-    //   verifiedUseCheckValue : useCheckValue,
-    // };
     console.log("tous les champs OK");
+    
+    console.log("nouvel état", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
     firstNameValue = null;
     lastNameValue = null;
     emailValue = null;
     birthDateValue = null;
     quantityValue = null;
     radioButtonValue = null;
-    useCheckValue = null;
-    console.log("nouvel état", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
-    alert("Merci ! Votre réservation a bien été reçue.");
+    useCheckValue = null;   
     document.getElementById("form").reset();
     closeModal();
-    
-  } else {
+    launchModalThanks();
+    closeModalCrossThanks.addEventListener('click', closeModalThanks);
+    closeModalBtnThanks.addEventListener('click', closeModalThanks);
+  
+  } else if (!document.getElementById('checkbox1').checked) {
     constErrorMessage ("checkboxOne", "Veuillez acceptez les termes et conditions.");
-    console.log("Echec Validation", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue)
-    // alert('Veuillez remplir les champs correctement.')
-
+    console.log("Echec Validation", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue)   
+  } else if (!firstNameValue) {
+    alert('Veuillez remplir le champ Prénom correctement.');
+  } else if (!lastNameValue) {
+    alert('Veuillez remplir le champ Nom correctement.');
+  } else if (!emailValue) {
+    alert('Veuillez remplir le champ Email correctement.');
   }
+  
 });
 
+// alert('Veuillez remplir les champs correctement.')
 
+// constForm.addEventListener('submit', (e) => {
+//   console.log('SUBMIT!!!')
+//   e.preventDefault();
+  
 
-
+//   console.log(firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
+//   if (firstNameValue && lastNameValue && emailValue && birthDateValue && quantityValue && radioButtonValue && useCheckValue) {
+//     // const verifiedValue = {
+//     //   verifiedFirstName : firstNameValue,
+//     //   verifedlastName : lastNameValue,
+//     //   verifiedEmailValue : emailValue,
+//     //   verifiedBirthDateValue : birthDateValue,
+//     //   verifiedQuantityValue : quantityValue,
+//     //   verifiedRadioButtonValue : radioButtonValue,
+//     //   verifiedUseCheckValue : useCheckValue,
+//     // };
+//     console.log("tous les champs OK");
+//     // firstNameValue = null;
+//     // lastNameValue = null;
+//     // emailValue = null;
+//     // birthDateValue = null;
+//     // quantityValue = null;
+//     // radioButtonValue = null;
+//     // useCheckValue = null;
+//     console.log("nouvel état", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
+    
+//     // alert("Merci ! Votre réservation a bien été reçue.");
+//     document.getElementById("form").reset();
+//     closeModal();
+//     launchModalThanks();
+//     closeModalCrossThanks.addEventListener('click', closeModalThanks);
+//     closeModalBtnThanks.addEventListener('click', closeModalThanks);
+    
+    
+//   } else if (!document.getElementById('checkbox1').checked) {
+//     constErrorMessage ("checkboxOne", "Veuillez acceptez les termes et conditions.");
+//     console.log("Echec Validation", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue)   
+//     }
+  
+// });
 
 
 
