@@ -35,7 +35,7 @@ img {
 /* Création de la classe .error par JS */
 /***************************************/
 .error input {
-  color: #fe142f;
+  color: #FF4E60;
   border: 2px solid #fe142f;
   /* rgba(255, 0, 0, 0.527) */
   }

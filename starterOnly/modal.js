@@ -26,9 +26,9 @@ function launchModal() {
 
 
 
-//*****************************************
-//************** Mon Travail **************
-//*****************************************
+//****************************************************************************************
+//********************************** Mon Travail *****************************************
+//****************************************************************************************
 
 
 //******************************************************
@@ -82,25 +82,26 @@ let firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, ra
 const constErrorMessage = (tag, message, valid) => {
   const constClass = document.querySelector("." + tag);
   const constSpan = document.querySelector("." + tag + "> span");
-
+  console.log(document.querySelector("." + tag));
+  console.log(document.querySelector("." + tag + "> span"));
   if (!valid) {
-    constClass.classList.add("error")
+    constClass.classList.add("error");
     constSpan.textContent = message;
   } else {
-    constClass.classList.remove("error")
+    constClass.classList.remove("error");
     constSpan.textContent = message;
   }
 };
 
 // (1) Le champ Prénom a un minimum de 2 caractères / n'est pas vide.
-// Contrôle du Prénom
+// Contrôle du PRENOM
 const firstNameChecker = (value) => {
 
   if ((value.length > 0) && (value.length <2 || value.length > 40)) {
     constErrorMessage ("firstName", "Veuillez entrer entre 2 et 40 caractères pour le champ du prénom.");
     firstNameValue = null;
-  } else if (!value.match(/^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.\s-]*$/)) {
-    constErrorMessage ("firstName", "Il ne doit pas y avoir de caractères spéciaux ou de chifres.");
+  } else if (!value.match(/^[a-zA-Z\s\-À-ÖØ-öø-ÿ']+$/)) { 
+    constErrorMessage ("firstName", "Il ne doit pas y avoir de caractères spéciaux ou de chiffres.");
     firstNameValue = null;
   } else {
     constErrorMessage ("firstName", "", true);
@@ -110,14 +111,17 @@ const firstNameChecker = (value) => {
 };
 
 // (2) Le champ du nom de famille a un minimum de 2 caractères / n'est pas vide.
-// Contrôle du Nom
+// Contrôle du NOM
 const lastNameChecker = (value) => {
   
   if ((value.length > 0) && (value.length <2 || value.length > 40)) {
     constErrorMessage ("lastName", "Veuillez entrer entre 2 et 40 caractères pour le champ du nom.");
     lastNameValue = null;
-  } else if (!value.match(/^[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.\s-]*$/)) {
-    constErrorMessage ("lastName", "Il ne doit pas y avoir de caractères spéciaux ou de chifres.");
+  // } else if (!value.match(/^[^\s]+[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.\s-]+[^\s]*$/)) {
+  // } else if (!value.match(/^[^\s]+[a-zA-Zá-œÁ-Œ\s-]+[^\s]$/)) {
+  } else if (!value.match(/^[a-zA-Z\s\-À-ÖØ-öø-ÿ']+$/)) {  
+  // } else if (!value.match(/^[^\s]+[ a-zA-Z\s\-À-ÖØ-öø-ÿ]+[^\s]$/)) {
+    constErrorMessage ("lastName", "Il ne doit pas y avoir de caractères spéciaux ou de chiffres.");
     lastNameValue = null;
   } else {
     constErrorMessage ("lastName", "", true);
@@ -133,7 +137,8 @@ const lastNameChecker = (value) => {
 // (/^[\w-\S]+@[\w-]+\.[a-z]{2,4}$/i)
 const mailChecker = (value) => {
   
-  if (!value.match(/^[\w-\S]+@[\w-]+\.[a-z]{2,4}$/i)) {
+  // if (!value.match(/^[\w-\S]+@[\w-]+\.[a-z]{2,4}$/i)) {
+  if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/)) {  
     console.log("non valide");
     constErrorMessage ("address", "L'adresse du courriel n'est pas valide.");
     emailValue = null;
@@ -178,14 +183,17 @@ const quantityChecker = (value) => {
 // Contrôle coche Conditions d'utilisation
 const useChecker = (value) => {
   // console.log("function", value);
-  if (document.getElementById("checkbox1").checked) {
-    console.log("coché");
-    console.log(document.getElementById("checkbox1").checked);
-    useCheckValue = value;
-  } else {
+  if (!document.getElementById('checkbox1').checked) {  
     console.log("décoché");
+    constErrorMessage ("checkboxOne", "Vous devez vérifier que vous acceptez les termes et conditions.");
     useCheckValue = null;
-    alert("Vous devez vérifier que vous acceptez les termes et conditions.");
+  } else {
+    console.log("coché");      
+    constErrorMessage ("checkboxOne", "", true);
+    useCheckValue = value;
+    console.log("useCheckValue", useCheckValue)
+    
+    // alert("Vous devez vérifier que vous acceptez les termes et conditions.");
   }
 };
 
@@ -212,6 +220,7 @@ inputsType.forEach((inputVar) => {
         break;
       case "checkbox1":
         useChecker(e.target.value);
+        console.log("e.target.value");
         break;
       default:
         console.log("pas de réaction");
@@ -253,6 +262,8 @@ inputsType.forEach((inputVar) => {
 constForm.addEventListener('submit', (e) => {
   console.log('SUBMIT!!!')
   e.preventDefault();
+  
+
   console.log(firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
   if (firstNameValue && lastNameValue && emailValue && birthDateValue && quantityValue && radioButtonValue && useCheckValue) {
     // const verifiedValue = {
@@ -274,11 +285,14 @@ constForm.addEventListener('submit', (e) => {
     useCheckValue = null;
     console.log("nouvel état", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
     alert("Merci ! Votre réservation a bien été reçue.");
+    document.getElementById("form").reset();
     closeModal();
     
   } else {
-    console.log("Echec", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue)
-    alert('Veuillez remplir les champs correctement.')
+    constErrorMessage ("checkboxOne", "Veuillez acceptez les termes et conditions.");
+    console.log("Echec Validation", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue)
+    // alert('Veuillez remplir les champs correctement.')
+
   }
 });
 
