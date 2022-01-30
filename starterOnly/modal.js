@@ -84,8 +84,8 @@ let firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, ra
 const constErrorMessage = (tag, message, valid) => {
   const constClass = document.querySelector("." + tag);
   const constSpan = document.querySelector("." + tag + "> span");
-  console.log(document.querySelector("." + tag));
-  console.log(document.querySelector("." + tag + "> span"));
+  // console.log(document.querySelector("." + tag));
+  // console.log(document.querySelector("." + tag + "> span"));
   if (!valid) {
     constClass.classList.add("error");
     constSpan.textContent = message;
@@ -182,6 +182,44 @@ const quantityChecker = (value) => {
   }
 };
 
+// const constErrorMessage = (tag, message, valid) => {
+//   const constClass = document.querySelector("." + tag);
+//   const constSpan = document.querySelector("." + tag + "> span");
+//   // console.log(document.querySelector("." + tag));
+//   // console.log(document.querySelector("." + tag + "> span"));
+//   if (!valid) {
+//     constClass.classList.add("error");
+//     constSpan.textContent = message;
+//   } else {
+//     constClass.classList.remove("error");
+//     constSpan.textContent = message;
+//   }
+// };
+
+
+// Détection de l'input radio de classe "checkbox-input" (choix de la ville)
+const radioChecker = (value) => {
+  const constRadioClass = document.querySelector(".radioBtn");
+  const constRadioSpan = document.querySelector(".radioBtn > span");
+  console.log("query", document.querySelector(".checkbox-input").checked);
+
+  if (!document.querySelector(".checkbox-input").checked) {
+    // console.log("query", document.querySelector(".checkbox-input").checked);
+    constRadioClass.classList.add("error");
+    constRadioSpan.textContent = ("Vous devez choisir une ville.");
+    radioButtonValue = null;
+    console.log("radiochecker NO", value);
+    // constErrorMessage ("checkbox-input", "OK", true);
+    
+  } else {  
+    // console.log("query", document.querySelector(".checkbox-input").checked); 
+    constRadioClass.classList.remove("error");
+    constRadioSpan.textContent = ("OK"); 
+    radioButtonValue = value;
+    console.log("radiochecker OK", value);
+  }
+}
+
 // Contrôle coche Conditions d'utilisation
 const useChecker = (value) => {
   // console.log("function", value);
@@ -198,6 +236,9 @@ const useChecker = (value) => {
     // alert("Vous devez vérifier que vous acceptez les termes et conditions.");
   }
 };
+
+
+    
 
 // Détection des input Prénom/Nom/Email/Date de naisssance/Nombre de tournois et renvoi vers la fonction adéquate
 inputsType.forEach((inputVar) => {
@@ -219,11 +260,32 @@ inputsType.forEach((inputVar) => {
         break;
       case "quantity": 
         quantityChecker(e.target.value);
+        console.log(e.target.value);
+        break;
+      case "location1":
+        radioChecker(e.target.value);
+        // console.log("CASE", e.target.value);
+        break;
+      case "location2":
+        radioChecker(e.target.value);
+        // console.log("CASE", e.target.value);
+        break;
+      case "location3":
+        radioChecker(e.target.value);
+        break;
+      case "location4":
+        radioChecker(e.target.value);
+        break;
+      case "location5":
+        radioChecker(e.target.value);
+        break; 
+      case "location6":
+        radioChecker(e.target.value);
         break;
       case "checkbox1":
         useChecker(e.target.value);
-        console.log("e.target.value");
-        break;
+        // console.log("e.target.value");
+        break;      
       default:
         console.log("pas de réaction");
         // null;
@@ -232,21 +294,7 @@ inputsType.forEach((inputVar) => {
 });
 
 
-// Détection de l'input radio de classe "checkbox-input" (choix de la ville)
-inputsType.forEach((inputVar) => {
-  inputVar.addEventListener("input", (e) => {
-    // console.log(e.target.value);  
-    // const constRadioButton = document.querySelectorAll(".checkbox-input")
-    if (e.target.className.match("checkbox-input")) {
-      radioButtonValue = e.target.value;
-      console.log(radioButtonValue);
-    } 
-    else {
-    //   console.log("City NO", e.target.value);
-      radioButtonValue = null;
-    }
-  });
-});
+
 
 // const checkboxes = document.querySelectorAll(".checkbox-input");
 
@@ -265,8 +313,7 @@ constForm.addEventListener('submit', (e) => {
   console.log('SUBMIT!!!')
   e.preventDefault();
   
-
-  console.log(firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
+  console.log("SUB", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
   if (firstNameValue && lastNameValue && emailValue && birthDateValue && quantityValue && radioButtonValue && useCheckValue) {
     console.log("tous les champs OK");
     
@@ -293,8 +340,13 @@ constForm.addEventListener('submit', (e) => {
     alert('Veuillez remplir le champ Nom correctement.');
   } else if (!emailValue) {
     alert('Veuillez remplir le champ Email correctement.');
+  } else if (!birthDateValue) {
+    alert('Veuillez remplir le champ Date correctement.');
+  } else if (!quantityValue) {
+    alert('Veuillez remplir le champ Nombre correctement.');
+  }   else if (!radioButtonValue) {
+    alert('Veuillez choisir une ville.');
   }
-  
 });
 
 // alert('Veuillez remplir les champs correctement.')
@@ -340,9 +392,54 @@ constForm.addEventListener('submit', (e) => {
   
 // });
 
+// Détection des input Prénom/Nom/Email/Date de naisssance/Nombre de tournois et renvoi vers la fonction adéquate
+// inputsType.forEach((inputVar) => {
+//   inputVar.addEventListener("input", (e) => {
+//     // console.log("input", e.target.value);
+    
+//     switch (e.target.id) {
+//       case "first":
+//         firstNameChecker(e.target.value);
+//         break;
+//       case "last": 
+//         lastNameChecker(e.target.value);
+//         break;
+//       case "email": 
+//         mailChecker(e.target.value);
+//         break;
+//       case "birthdate": 
+//         birthChecker(e.target.value);
+//         break;
+//       case "quantity": 
+//         quantityChecker(e.target.value);
+//         break;
+//       case "checkbox1":
+//         useChecker(e.target.value);
+//         console.log("e.target.value");
+//         break;
+//       default:
+//         console.log("pas de réaction");
+//         // null;
+//     };
+//   }); 
+// });
 
 
-
+// Détection de l'input radio de classe "checkbox-input" (choix de la ville)
+// inputsType.forEach((inputVar) => {
+//   inputVar.addEventListener("input", (e) => {
+//     // console.log(e.target.value);  
+//     // const constRadioButton = document.querySelectorAll(".checkbox-input")
+//     if (e.target.className.match("checkbox-input")) {
+//       radioButtonValue = e.target.value;
+//       console.log(radioButtonValue);
+//     } 
+//     else {
+//     //   console.log("City NO", e.target.value);
+//       radioButtonValue = null;
+//     }
+//   });
+// });
 
 
 // const errorMessage = (valid) => {
