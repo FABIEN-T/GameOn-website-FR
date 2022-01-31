@@ -35,6 +35,8 @@ function launchModal() {
 //************************************************************
 //********* Ouverture de le Fenêtre de remerciements *********
 //************************************************************
+// const constInitChecker = document.querySelector(".checkboxOne");
+// constInitChecker = 
 
 function launchModalThanks() {
   modalbgThanks.style.display = "block";
@@ -80,7 +82,7 @@ let firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, ra
 
 
 
-// Message d'erreur
+// MESSAGE D'ERREUR
 const constErrorMessage = (tag, message, valid) => {
   const constClass = document.querySelector("." + tag);
   const constSpan = document.querySelector("." + tag + "> span");
@@ -99,7 +101,9 @@ const constErrorMessage = (tag, message, valid) => {
 // Contrôle du PRENOM
 const firstNameChecker = (value) => {
 
-  if ((value.length > 0) && (value.length <2 || value.length > 40)) {
+  if (value === undefined || value === null) {
+    constErrorMessage ("firstName", "Le champ Prénom doit être rempli");
+  } else   if ((value.length > 0) && (value.length <2 || value.length > 40)) {
     constErrorMessage ("firstName", "Veuillez entrer entre 2 et 40 caractères pour le champ du prénom.");
     firstNameValue = null;
   } else if (!value.match(/^[a-zA-Z\s\-À-ÖØ-öø-ÿ']+$/)) { 
@@ -107,16 +111,18 @@ const firstNameChecker = (value) => {
     firstNameValue = null;
   } else {
     constErrorMessage ("firstName", "", true);
-    firstNameValue = value;
+    firstNameValue = value.trim();
   }
-  console.log("First", firstNameValue)
+  console.log("First", firstNameValue);
 };
 
 // (2) Le champ du nom de famille a un minimum de 2 caractères / n'est pas vide.
 // Contrôle du NOM
 const lastNameChecker = (value) => {
   
-  if ((value.length > 0) && (value.length <2 || value.length > 40)) {
+  if (value === undefined || value === null) {
+    constErrorMessage ("lastName", "Le champ Nom doit être rempli");
+  } else if ((value.length > 0) && (value.length <2 || value.length > 40)) {
     constErrorMessage ("lastName", "Veuillez entrer entre 2 et 40 caractères pour le champ du nom.");
     lastNameValue = null;
   // } else if (!value.match(/^[^\s]+[a-zA-ZáàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ.\s-]+[^\s]*$/)) {
@@ -127,35 +133,36 @@ const lastNameChecker = (value) => {
     lastNameValue = null;
   } else {
     constErrorMessage ("lastName", "", true);
-    lastNameValue = value;
+    lastNameValue = value.trim();
   }
   console.log("Last", lastNameValue);
 };
 
 //(3) L'adresse électronique est valide.
 // Contrôle de l'Email
-//+[^áàâäãåçéèêëíìîïñóòôöõúùûüýÿæœÁÀÂÄÃÅÇÉÈÊËÍÌÎÏÑÓÒÔÖÕÚÙÛÜÝŸÆŒ]
-//(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))+@[\w-]+\.[a-z]{2,4}$/i)
-// (/^[\w-\S]+@[\w-]+\.[a-z]{2,4}$/i)
 const mailChecker = (value) => {
   
   // if (!value.match(/^[\w-\S]+@[\w-]+\.[a-z]{2,4}$/i)) {
-  if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/)) {  
+  if (value === undefined || value === null) {
+    constErrorMessage ("address", "Le champ Email doit être rempli");
+  } else if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/)) {  
     console.log("non valide");
-    constErrorMessage ("address", "L'adresse du courriel n'est pas valide.");
+    constErrorMessage ("address", "L'adresse du courriel n'est pas valide (ne pas mettre pas d'espace).");
     emailValue = null;
   } else {
     constErrorMessage("address", "", true);
-    emailValue = value;    
+    emailValue = value.trim();    
   }
+  // console.log("Email", value.trim());
   console.log("Email", emailValue);
 };
 
 // Contrôle de la date de naissance
 const birthChecker = (value) => {
   // const constBirth = document.querySelector('.birth');
-
-  if (!value.match(/[0-9]/)) {
+  if (value === undefined || value === null) {
+    constErrorMessage ("birth", "Le champ date de naissance doit être rempli");
+  } else if (!value.match(/[0-9]/)) {
     console.log("la date est vide", value);    
     constErrorMessage ("birth", "Vous devez entrer votre date de naissance.")
     birthDateValue = null;
@@ -170,8 +177,10 @@ const birthChecker = (value) => {
 // Contrôle de la quantité 
 const quantityChecker = (value) => {
   // console.log(value);
-  const constNumber = document.querySelector('.number');
-  if (!value.match(/^[1-9][0-9]?$/)) {
+  // const constNumber = document.querySelector('.number');
+  if (value === undefined || value === null) {
+    constErrorMessage ("number", "Le champ nombre de trournoi doit être rempli");
+  } else if (!value.match(/^[1-9][0-9]?$/)) {
     console.log("bad quantity", value);
     constErrorMessage ("number", "Le chiffre doit être compris entre 1 et 99.");
     quantityValue = null;
@@ -182,39 +191,22 @@ const quantityChecker = (value) => {
   }
 };
 
-// const constErrorMessage = (tag, message, valid) => {
-//   const constClass = document.querySelector("." + tag);
-//   const constSpan = document.querySelector("." + tag + "> span");
-//   // console.log(document.querySelector("." + tag));
-//   // console.log(document.querySelector("." + tag + "> span"));
-//   if (!valid) {
-//     constClass.classList.add("error");
-//     constSpan.textContent = message;
-//   } else {
-//     constClass.classList.remove("error");
-//     constSpan.textContent = message;
-//   }
-// };
-
-
 // Détection de l'input radio de classe "checkbox-input" (choix de la ville)
 const radioChecker = (value) => {
   const constRadioClass = document.querySelector(".radioBtn");
   const constRadioSpan = document.querySelector(".radioBtn > span");
-  console.log("query", document.querySelector(".checkbox-input").checked);
-
-  if (!document.querySelector(".checkbox-input").checked) {
-    // console.log("query", document.querySelector(".checkbox-input").checked);
+  console.log("VALUE", value);
+  // console.log("query", document.querySelector(".checkbox-input").checked);
+  
+  if (value === undefined || value === null) {
     constRadioClass.classList.add("error");
     constRadioSpan.textContent = ("Vous devez choisir une ville.");
     radioButtonValue = null;
     console.log("radiochecker NO", value);
-    // constErrorMessage ("checkbox-input", "OK", true);
     
-  } else {  
-    // console.log("query", document.querySelector(".checkbox-input").checked); 
+  } else { 
     constRadioClass.classList.remove("error");
-    constRadioSpan.textContent = ("OK"); 
+    constRadioSpan.textContent = (""); 
     radioButtonValue = value;
     console.log("radiochecker OK", value);
   }
@@ -223,7 +215,9 @@ const radioChecker = (value) => {
 // Contrôle coche Conditions d'utilisation
 const useChecker = (value) => {
   // console.log("function", value);
-  if (!document.getElementById('checkbox1').checked) {  
+  if (value === undefined || value === null) {
+    constErrorMessage ("checkboxOne", "Vous devez vérifier que vous acceptez les termes et conditions.");
+  } else if (!document.getElementById('checkbox1').checked) {  
     console.log("décoché");
     constErrorMessage ("checkboxOne", "Vous devez vérifier que vous acceptez les termes et conditions.");
     useCheckValue = null;
@@ -260,15 +254,12 @@ inputsType.forEach((inputVar) => {
         break;
       case "quantity": 
         quantityChecker(e.target.value);
-        console.log(e.target.value);
         break;
       case "location1":
         radioChecker(e.target.value);
-        // console.log("CASE", e.target.value);
         break;
       case "location2":
         radioChecker(e.target.value);
-        // console.log("CASE", e.target.value);
         break;
       case "location3":
         radioChecker(e.target.value);
@@ -308,13 +299,102 @@ inputsType.forEach((inputVar) => {
 // Le formulaire doit être valide quand l'utilisateur clique sur "Submit" ("C'est parti")
 //***************************************************************************************
 
+// Message d'erreur à la Validation
+const constErrorValidation = (message) => {
+  const constClassValidation = document.querySelector(".spanValidation");
+  const constSpanValidation = document.querySelector(".spanValidation > span");
+  constClassValidation.classList.add("error");
+  constSpanValidation.textContent = message;
+  
+  // console.log(document.querySelector(".spanValidation"));
+  // console.log(document.querySelector(".spanValidation > span"));
+};
+
+// Message d'erreur Rouge à la Validation
+// const const2ErrorMessage = (tag, valid) => {
+//   const constClass = document.querySelector("." + tag);
+//   // const constSpan = document.querySelector("." + tag + "> span");
+//   // console.log(document.querySelector("." + tag));
+//   // console.log(document.querySelector("." + tag + "> span"));
+//   if (!valid) {
+//     constClass.classList.add("error");
+//     // constSpan.textContent = message;
+//   } else {
+//     constClass.classList.remove("error");
+//     // constSpan.textContent = message;
+//   }
+// };
+
+
 // Vérification de tous les champs et Validation du formulaire le cas échéant
 constForm.addEventListener('submit', (e) => {
-  console.log('SUBMIT!!!')
   e.preventDefault();
+  // console.log('SUBMIT!!!')
+  const constClassValidation = document.querySelector(".spanValidation");
+  const constSpanValidation = document.querySelector(".spanValidation > span");
+  const constEmptyField = firstNameValue && lastNameValue && emailValue && birthDateValue && quantityValue && radioButtonValue && useCheckValue  
+  // const detections = [firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue];
+  // for (let valeur of detections) {
+  //   console.log ("array", valeur);
+  // }
+  // for (let i of detections) {
+  //   console.log ("array", i);
+  //   if (i === null || i === undefined) {
+
+  //   }
+  // }
+  // detections.forEach(element => 
+  //   console.log("array", element));
+  //   if (element === null || element === undefined) {
+  //     console.log ("NO", element);
+  //   } else { 
+  //     console.log ("OK", element);
+  //   }
+
+
+  // console.log ("array", detection[0]);
+  // console.log ("array", detection[1]);
+  // console.log ("array", detection[2]);
+  // console.log ("array", detection[3]);
+  // console.log ("array", detection[4]);
+  // console.log ("array", detection[5]);
+  console.log("SUBMIT", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
+  // console.log("Résultat", firstNameValue && lastNameValue && emailValue && birthDateValue && quantityValue && radioButtonValue && useCheckValue);
   
-  console.log("SUB", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
-  if (firstNameValue && lastNameValue && emailValue && birthDateValue && quantityValue && radioButtonValue && useCheckValue) {
+  // if ((firstNameValue && lastNameValue && emailValue && birthDateValue && quantityValue && radioButtonValue && useCheckValue) || e === undefined) {
+  // if (constEmptyField === undefined || constEmptyField === null) {
+  //   console.log("1er if", constEmptyField);
+  //   constErrorValidation ('Veuillez remplir le(s) champ(s) correctement.');
+  //   } else 
+    if (firstNameValue === undefined || firstNameValue === null) {
+      console.log("Validation", firstNameValue);
+      constErrorValidation ('Veuillez remplir le(s) champ(s) correctement.');
+      // const2ErrorMessage ("firstName");
+      firstNameChecker (firstNameValue);
+    } else if (lastNameValue === undefined || lastNameValue === null) {
+        constErrorValidation ('Veuillez remplir le(s) champ(s) correctement.');
+        lastNameChecker (lastNameValue);
+        } else if (emailValue === undefined || emailValue === null) {
+          constErrorValidation ('Veuillez remplir le(s) champ(s) correctement.');
+          mailChecker (emailValue);
+          } else if (birthDateValue === undefined || birthDateValue === null) {
+            constErrorValidation ('Veuillez remplir le(s) champ(s) correctement.');
+            birthChecker (birthDateValue);
+            } else if (quantityValue === undefined || quantityValue === null) {
+              constErrorValidation ('Veuillez remplir le(s) champ(s) correctement.');
+              quantityChecker (quantityValue);
+             } else if (radioButtonValue === undefined || radioButtonValue === null) {
+                constErrorValidation ('Veuillez remplir le(s) champ(s) correctement.');
+                radioChecker (radioButtonValue);
+                // if (!document.getElementById('checkbox1').checked) {
+                //   constErrorMessage ("checkboxOne", "Veuillez acceptez les termes et conditions.");
+                //}
+                } else if (useCheckValue === undefined || useCheckValue === null) {
+                  useChecker (useCheckValue);
+                }                 
+              
+            
+   else if (firstNameValue && lastNameValue && emailValue && birthDateValue && quantityValue && radioButtonValue && useCheckValue) {
     console.log("tous les champs OK");
     
     console.log("nouvel état", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
@@ -326,28 +406,53 @@ constForm.addEventListener('submit', (e) => {
     radioButtonValue = null;
     useCheckValue = null;   
     document.getElementById("form").reset();
+    constClassValidation.classList.add("error");
+    constSpanValidation.textContent = "";
     closeModal();
     launchModalThanks();
     closeModalCrossThanks.addEventListener('click', closeModalThanks);
     closeModalBtnThanks.addEventListener('click', closeModalThanks);
+ } 
   
-  } else if (!document.getElementById('checkbox1').checked) {
-    constErrorMessage ("checkboxOne", "Veuillez acceptez les termes et conditions.");
-    console.log("Echec Validation", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue)   
-  } else if (!firstNameValue) {
-    alert('Veuillez remplir le champ Prénom correctement.');
-  } else if (!lastNameValue) {
-    alert('Veuillez remplir le champ Nom correctement.');
-  } else if (!emailValue) {
-    alert('Veuillez remplir le champ Email correctement.');
-  } else if (!birthDateValue) {
-    alert('Veuillez remplir le champ Date correctement.');
-  } else if (!quantityValue) {
-    alert('Veuillez remplir le champ Nombre correctement.');
-  }   else if (!radioButtonValue) {
-    alert('Veuillez choisir une ville.');
-  }
+    // console.log("Echec Validation", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);  
+  
+// console.log("nouvel état", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
+
 });
+
+// (!document.getElementById('checkbox1').checked) {
+//   constErrorMessage ("checkboxOne", "Veuillez acceptez les termes et conditions.");
+//   console.log("Echec Validation", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);  
+// } else if (!firstNameValue) {
+//     constErrorValidation ('Veuillez remplir le(s) champ(s) correctement.');
+//     const2ErrorMessage ("firstName");
+// } else if (!lastNameValue) {
+//   constErrorValidation ('Veuillez remplir le(s) champ(s) correctement.');
+//   const2ErrorMessage ("lastName");
+// } else if (!emailValue) {
+//   constErrorValidation ('Veuillez remplir le(s) champ(s) Email correctement.');
+//   const2ErrorMessage ("address");
+// } else if (!birthDateValue) {
+//   constErrorValidation ('Veuillez remplir la date de naissance.');
+//   const2ErrorMessage ("birth");
+// } else if (!quantityValue) {
+//   constErrorValidation ('Veuillez mettre un nombre dans le champ tournoi.');
+//   const2ErrorMessage ("number");
+// } else if (!radioButtonValue) {
+//   constErrorValidation ('Veuillez choisir une ville.');
+//   const2ErrorMessage ("radioBtn");
+
+
+
+
+
+
+
+
+
+
+
+
 
 // alert('Veuillez remplir les champs correctement.')
 
