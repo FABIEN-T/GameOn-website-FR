@@ -15,10 +15,10 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  background-image: url("background.png");
+  /* background-image: url("background.png"); */
   font-family: var(--font-default);
   font-size: 18px;
-  max-width: 1300px;
+  max-width: 1920px;
   margin: 0 auto;
 }
 
@@ -31,22 +31,25 @@ img {
   padding-right: 1rem;
 }
 
-/***************************************/
-/* Création de la classe .error par JS */
-/***************************************/
+/******************************************************/
+/******* Création de la classe .error par JS *********/
+/****************************************************/
 .error input {
   color: #FF4E60;
   border: 2px solid #fe142f;
   /* rgba(255, 0, 0, 0.527) */
   }
   
-.error span {  
-  font-size: 54%;
+.error span {
+  display: flex;  
+  font-size: 10px;
   visibility: visible;
   opacity: 1;
   color: #fe142f;
+  margin-top: -3px;
+  margin-bottom: -30px;
   }
-
+/***************************************/
 
 .topnav {
   overflow: hidden;
@@ -192,8 +195,8 @@ main {
 
 .content {
   margin: 5% auto;
-  width: 100%;
-  max-width: 500px;
+  /* width: 100%; */
+  max-width: 536px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
   background: #232323;
@@ -202,6 +205,10 @@ main {
   position: relative;
   color: #fff;
   padding-top: 10px;
+}
+
+.contentThanks {
+  height: 843px;
 }
 
 .bground-thanks {
@@ -229,16 +236,29 @@ main {
 } */
 
 .modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
   padding: 15px 8%;
   margin: 15px auto;
 }
 
+.textThanks {
+  max-width: 271px;
+  margin-top: 300px;
+  font-weight: 400;
+  font-size: 36px;
+  text-align: center;
+}
+
+
 label {
   font-family: var(--font-default);
-  font-size: 17px;
-  font-weight: normal;
+  font-size: 14px;
+  font-weight: 400;
   display: inline-block;
-  margin-bottom: 11px;
+  margin-bottom: 17px;
 }
 input {
   padding: 8px;
@@ -251,7 +271,9 @@ input {
   width: 100%;
   border-radius: 8px;
   font-size: 20px;
-  height: 48px;
+  /* height: 48px; */
+  height: 64px;
+  margin-bottom: 10px;
 }
 .formData[data-error]::after {
   content: attr(data-error);
@@ -287,9 +309,12 @@ input[data-error]::after {
 .checkbox-label .checkbox-icon,
 .checkbox2-label .checkbox-icon {
   display: block;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #279e7a;
+  /* vertical-align: middle; */
+  text-align: center;
+  width: 25px;
+  height: 25px;
+  border: 1px solid #279e7a;
+  /* border: 1px solid #c4c4c4; */
   border-radius: 50%;
   text-indent: 29px;
   white-space: nowrap;
@@ -301,8 +326,9 @@ input[data-error]::after {
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
   content: "";
-  width: 13px;
-  height: 13px;
+  width: 17px;
+  height: 17px;
+  /* border: 1px solid #279e7a; */
   background-color: #279e7a;
   border-radius: 50%;
   text-indent: 29px;
@@ -314,6 +340,17 @@ input[data-error]::after {
   transition: 0.3s;
   opacity: 0;
 }
+
+.city {
+  margin-top: 3px;
+  margin-left: 2px;
+}
+
+.checkbox-text {
+  padding-top: 3px;
+  padding-left: 5px;
+}
+
 .checkbox-input {
   display: none;
 }
@@ -366,20 +403,21 @@ input[data-error]::after {
 .close:after {
   transform: rotate(-45deg);
 }
-.close:hover {
+/* .close:hover {
   background-color: #fe142f;
 }
 .close:active {
   background-color: #4714fe;
-}
+} */
 
 .btn-signup {
   background: #fe142f;
+  white-space: nowrap;
   display: block;
   margin: 0 auto;
   border-radius: 8px;
   font-size: 1rem;
-  padding: 12px 82px;
+  /* padding: 12px 82px; */
   color: #fff;
   cursor: pointer;
   border: 0;
@@ -388,7 +426,7 @@ input[data-error]::after {
 .btn-submit, .btn-closeThanks {
   background: #fe142f;
   display: block;
-  margin: 0 auto;
+  margin: 0px auto;
   border-radius: 8px;
   font-size: 14px;
   /* padding: 12px 82px; */
@@ -397,6 +435,14 @@ input[data-error]::after {
   color: #fff;
   cursor: pointer;
   border: 0;
+}
+
+.btn-closeThanks {
+  margin-top: 330px;
+}
+
+.btn-submit {
+  margin-top: 40px;
 }
 
 /* custom select styles */
@@ -468,64 +514,83 @@ input[data-error]::after {
 /* custom select end */
 .text-label {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
 }
-.hero-section {
-  min-height: 93vh;
+.hero-section {  
+  max-height: 657px;
+  /* min-height: 93vh; */
+  max-width: 87vw;
   border-radius: 10px;
-  display: grid;
+  display: flex;
+  /* display: grid; */
   grid-template-columns: repeat(12, 1fr);
   overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
 .hero-content {
-  padding: 51px 67px;
-  grid-column: span 4;
+  padding: 53px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;  
+  flex: 35%;
+  /* grid-column: span 4; */
+  /* background: #417e0993; */
   background: #232323;
   color: #fff;
   position: relative;
   text-align: left;
   min-width: 424px;
 }
-.hero-content::after {
+/* .hero-content::after {
   content: "";
   width: 100%;
   height: 100%;
+  background: #195fa1;
   background: #232323;
   position: absolute;
   right: -80px;
   top: 0;
-}
+} */
 .hero-content > * {
   position: relative;
   z-index: 1;
 }
 .hero-headline {
-  font-size: 6rem;
-  font-weight: normal;
+  margin: 0;;
+  font-size: 96px;
+  line-height: 125px;
+  font-weight: 500;
   white-space: nowrap;
 }
 .hero-text {
-  width: 146%;
-  font-weight: normal;
-  margin-top: 57px;
+  /* width: 146%; */
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 31px;
+  /* margin-top: 57px; */
   padding: 0;
 }
 .btn-signup {
   outline: none;
-  text-transform: capitalize;
-  font-size: 1.3rem;
-  padding: 15px 23px;
+  text-transform: capitalize;  
+  width: 181px;
+  /* height: 33px; */
+  font-size: 25px;
+  padding: 11px 30px;
   margin: 0;
-  margin-top: 59px;
+  /* margin-top: 120px; */
 }
 .hero-img {
-  grid-column: span 8;
+  display: flex;
+  flex: 53%;
+  overflow: hidden;
+  /* grid-column: span 8; */
 }
 .hero-img img {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
+  object-fit: cover;
   display: block;
   padding: 0;
 }

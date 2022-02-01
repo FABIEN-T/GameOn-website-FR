@@ -12,7 +12,7 @@ function editNav() {
 //*********************************************************************
 
 // DOM Elements
-const modalbg = document.querySelector(".bground");
+  const modalbg = document.querySelector(".bground");
 const modalbgThanks = document.querySelector(".bground-thanks");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
@@ -216,10 +216,10 @@ const radioChecker = (value) => {
 const useChecker = (value) => {
   // console.log("function", value);
   if (value === undefined || value === null) {
-    constErrorMessage ("checkboxOne", "Vous devez vérifier que vous acceptez les termes et conditions.");
+    constErrorMessage ("checkboxOne", "Vous devez vérifier que vous acceptez les termes et conditions d'utilisation.");
   } else if (!document.getElementById('checkbox1').checked) {  
     console.log("décoché");
-    constErrorMessage ("checkboxOne", "Vous devez vérifier que vous acceptez les termes et conditions.");
+    constErrorMessage ("checkboxOne", "Vous devez vérifier que vous acceptez les termes et conditions d'utilisation.");
     useCheckValue = null;
   } else {
     console.log("coché");      
@@ -310,21 +310,6 @@ const constErrorValidation = (message) => {
   // console.log(document.querySelector(".spanValidation > span"));
 };
 
-// Message d'erreur Rouge à la Validation
-// const const2ErrorMessage = (tag, valid) => {
-//   const constClass = document.querySelector("." + tag);
-//   // const constSpan = document.querySelector("." + tag + "> span");
-//   // console.log(document.querySelector("." + tag));
-//   // console.log(document.querySelector("." + tag + "> span"));
-//   if (!valid) {
-//     constClass.classList.add("error");
-//     // constSpan.textContent = message;
-//   } else {
-//     constClass.classList.remove("error");
-//     // constSpan.textContent = message;
-//   }
-// };
-
 
 // Vérification de tous les champs et Validation du formulaire le cas échéant
 constForm.addEventListener('submit', (e) => {
@@ -333,31 +318,7 @@ constForm.addEventListener('submit', (e) => {
   const constClassValidation = document.querySelector(".spanValidation");
   const constSpanValidation = document.querySelector(".spanValidation > span");
   const constEmptyField = firstNameValue && lastNameValue && emailValue && birthDateValue && quantityValue && radioButtonValue && useCheckValue  
-  // const detections = [firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue];
-  // for (let valeur of detections) {
-  //   console.log ("array", valeur);
-  // }
-  // for (let i of detections) {
-  //   console.log ("array", i);
-  //   if (i === null || i === undefined) {
-
-  //   }
-  // }
-  // detections.forEach(element => 
-  //   console.log("array", element));
-  //   if (element === null || element === undefined) {
-  //     console.log ("NO", element);
-  //   } else { 
-  //     console.log ("OK", element);
-  //   }
-
-
-  // console.log ("array", detection[0]);
-  // console.log ("array", detection[1]);
-  // console.log ("array", detection[2]);
-  // console.log ("array", detection[3]);
-  // console.log ("array", detection[4]);
-  // console.log ("array", detection[5]);
+  
   console.log("SUBMIT", firstNameValue, lastNameValue, emailValue, birthDateValue, quantityValue, radioButtonValue, useCheckValue);
   // console.log("Résultat", firstNameValue && lastNameValue && emailValue && birthDateValue && quantityValue && radioButtonValue && useCheckValue);
   
@@ -442,6 +403,20 @@ constForm.addEventListener('submit', (e) => {
 //   constErrorValidation ('Veuillez choisir une ville.');
 //   const2ErrorMessage ("radioBtn");
 
+// Message d'erreur Rouge à la Validation
+// const const2ErrorMessage = (tag, valid) => {
+//   const constClass = document.querySelector("." + tag);
+//   // const constSpan = document.querySelector("." + tag + "> span");
+//   // console.log(document.querySelector("." + tag));
+//   // console.log(document.querySelector("." + tag + "> span"));
+//   if (!valid) {
+//     constClass.classList.add("error");
+//     // constSpan.textContent = message;
+//   } else {
+//     constClass.classList.remove("error");
+//     // constSpan.textContent = message;
+//   }
+// };
 
 
 

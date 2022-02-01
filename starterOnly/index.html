@@ -9,10 +9,13 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <!-- <link
       href="https://fonts.googleapis.com/css?family=DM+Sans"
       rel="stylesheet"
-    />
+    /> -->
   </head>
   <body>
     <div class="topnav" id="myTopnav">
@@ -30,7 +33,6 @@
           <i class="fa fa-bars"></i>
         </a>
       </div>
-      <!-- </div> -->
     </div>
     <main>
       <div class="hero-section">
@@ -63,9 +65,7 @@
               action="index.html"
               method="get"
               id="form"
-              <!-- id rajouté pour permettre le reset du formulaire. -->
-            
-                <!-- onsubmit="return validate;"-->
+              <!-- onsubmit="return validate"; -->
               
               <div class="formData firstName">
                 <label for="first">Prénom</label><br />
@@ -76,7 +76,6 @@
                   name="first"
                   minlength="2"
                 />
-                <br />
                 <span></span>
                 <br />
               </div>
@@ -87,8 +86,8 @@
                   type="text"
                   id="last"
                   name="last"
+                  minlength="2"
                 />
-                <br />
                 <span></span>
                 <br />
               </div>
@@ -100,7 +99,6 @@
                   id="email"
                   name="email"
                 />
-                <br />                
                 <span></span>
                 <br />
               </div>
@@ -112,7 +110,6 @@
                   id="birthdate"
                   name="birthdate"
                 />
-                <br />  
                 <span></span>
                 <br />             
               </div>
@@ -120,7 +117,7 @@
                 <label for="quantity"
                   >À combien de tournois GameOn avez-vous déjà participé
                   ?</label
-                ><br />
+                >
                 <input
                   type="number"
                   class="text-control"
@@ -130,8 +127,7 @@
                   max="99"
                 />
                 <span></span>
-                <br />
-                <br />  
+                <br /> 
                 
               </div>
               <p class="text-label">
@@ -147,8 +143,8 @@
                 />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
-                  New York</label
-                >
+                  <div class="city"> New York </div>
+                </label>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -158,8 +154,8 @@
                 />
                 <label class="checkbox-label" for="location2">
                   <span class="checkbox-icon"></span>
-                  San Francisco</label
-                >
+                  <div class="city"> San Francisco </div>
+                </label>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -169,8 +165,8 @@
                 />
                 <label class="checkbox-label" for="location3">
                   <span class="checkbox-icon"></span>
-                  Seattle</label
-                >
+                  <div class="city"> Seattle </div>  
+                </label>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -180,8 +176,8 @@
                 />
                 <label class="checkbox-label" for="location4">
                   <span class="checkbox-icon"></span>
-                  Chicago</label
-                >
+                  <div class="city"> Chicago </div>
+                </label>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -191,8 +187,8 @@
                 />
                 <label class="checkbox-label" for="location5">
                   <span class="checkbox-icon"></span>
-                  Boston</label
-                >
+                  <div class="city"> Boston </div>
+                </label>
                 <input
                   class="checkbox-input"
                   type="radio"
@@ -202,12 +198,12 @@
                 />
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
-                  Portland</label
-                >
-                <br />
+                  <div class="city"> Portland </div>                  
+                </label>
                 <span></span>
+                <br /> 
               </div>
-              <br /> 
+              
 
               <div class="formData checkboxOne">
 
@@ -219,11 +215,13 @@
                 />
                 <label class="checkbox2-label" for="checkbox1">
                   <!-- required -->
+                  <!-- <span class="checkbox-icon"></span> -->
                   <div class="checkbox-icon"></div>
-                  J'ai lu et accepté les conditions d'utilisation.                  
-                </label>
-                <br />
+                  <div class= checkbox-text>J'ai lu et accepté les conditions d'utilisation.</div>
+                                    
+                </label>                
                 <span></span>
+                <br />
 
                 <input
                   class="checkbox-input"
@@ -231,10 +229,12 @@
                   id="checkbox2"
                 />
                 <label class="checkbox2-label" for="checkbox2">
-                  <span class="checkbox-icon"></span>
-                  Je souhaite être prévenu des prochains évènements.
+                  <!-- <span class="checkbox-icon"></span> -->
+                  <div class="checkbox-icon"></div>
+                  <div class= checkbox-text>Je souhaite être prévenu des prochains évènements.</div>
+                  
                 </label>
-                <br />
+                <!-- <br /> -->
                 <br />
               </div>
               <div class="spanValidation">
@@ -247,10 +247,10 @@
         </div>
       </div>
       <div class="bground-thanks">
-       <div class="content">
+       <div class="content contentThanks">
         <span class="close closeThanks"></span>
         <div class="modal-body">
-          <div>Merci pour votre inscription</div>
+          <div class="textThanks">Merci pour votre inscription</div>
           <button class="btn-closeThanks">Fermer</button>          
         </div>
        </div>
