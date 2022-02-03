@@ -135,7 +135,7 @@ p {
   .hero-headline {
     width: 100%;
     max-width: 100%;
-    white-space: wrap;
+    /* white-space: wrap; */
     /* margin: 0px 0px 60px; */
     padding: 0px;
   }
@@ -373,6 +373,7 @@ input[data-error]::after {
 .checkbox-label,
 .checkbox2-label {
   position: relative;
+  margin-top: -10px;
   margin-left: 36px;
   font-size: 12px;
   font-weight: normal;
@@ -413,11 +414,13 @@ input[data-error]::after {
 }
 
 .city {
+  display: block;
   margin-top: 3px;
   margin-left: 2px;
 }
 
 .checkbox-text {
+  display: block;
   padding-top: 3px;
   padding-left: 5px;
 }
@@ -438,7 +441,7 @@ input[data-error]::after {
   background: #c4c4c4;
 }
 .checkbox2-label .checkbox-icon::after {
-  width: 7px;
+  width: 8px;
   height: 4px;
   border-radius: 2px;
   background: transparent;
@@ -446,8 +449,8 @@ input[data-error]::after {
   border-bottom-color: #fff;
   border-left-color: #fff;
   transform: rotate(-55deg);
-  left: 21%;
-  top: 19%;
+  left: 27%;
+  top: 25%;
 }
 .close {
   position: absolute;
