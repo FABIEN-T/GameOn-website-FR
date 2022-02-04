@@ -9,13 +9,18 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
     <!-- <link
       href="https://fonts.googleapis.com/css?family=DM+Sans"
       rel="stylesheet"
     /> -->
+    <script src="function.js" defer></script>
+    <script src="modal.js" defer></script>
   </head>
   <body>
     <div class="topnav" id="myTopnav">
@@ -30,6 +35,7 @@
         <a href="#"><span>Contact</span></a>
         <a href="#"><span>Évènements passés</span></a>
         <a href="javascript:void(0);" class="icon" onclick="editNav()">
+          <!-- <a href="#" id="bars" class="icon"></a> -->
           <i class="fa fa-bars"></i>
         </a>
       </div>
@@ -46,14 +52,12 @@
             Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux
             réservations... Places limitées !
           </p>
-            <button class="btn-signup modal-btn">Je m'inscris</button>
+          <button class="btn-signup modal-btn">Je m'inscris</button>
         </div>
         <div class="hero-img">
           <img src="./bg_img.jpg" alt="img" />
         </div>
-        <button class="btn-signup modal-btn">
-          je m'inscris
-        </button>
+        <button class="btn-signup modal-btn">je m'inscris</button>
       </div>
 
       <div class="bground">
@@ -61,12 +65,7 @@
           <!-- Fermeture Modal -->
           <span class="close"></span>
           <div class="modal-body">
-            <form
-              name="reserve"
-              action="index.html"
-              method="get"
-              id="form"
-              >
+            <form name="reserve" action="index.html" method="get" id="form">
               <div class="formData firstName">
                 <label for="first">Prénom</label><br />
                 <input
@@ -111,7 +110,7 @@
                   name="birthdate"
                 />
                 <span></span>
-                <br />             
+                <br />
               </div>
               <div class="formData number">
                 <label for="quantity"
@@ -127,9 +126,9 @@
                   max="99"
                 />
                 <span></span>
-                <br /> 
-                
+                <br />
               </div>
+
               <p class="text-label">
                 A quel tournoi souhaitez-vous participer cette année ?
               </p>
@@ -165,7 +164,7 @@
                 />
                 <label class="checkbox-label" for="location3">
                   <span class="checkbox-icon"></span>
-                  <span class="city"> Seattle </span>  
+                  <span class="city"> Seattle </span>
                 </label>
                 <input
                   class="checkbox-input"
@@ -198,49 +197,40 @@
                 />
                 <label class="checkbox-label" for="location6">
                   <span class="checkbox-icon"></span>
-                  <span class="city"> Portland </span>                  
+                  <span class="city"> Portland </span>
                 </label>
                 <span></span>
-                <br /> 
+                <br />
               </div>
-              
 
               <div class="formData checkboxOne">
-
-                <input
-                  class="checkbox-input"
-                  type="checkbox" 
-                  id="checkbox1"   
-                  
-                />
+                <input class="checkbox-input" type="checkbox" id="checkbox1" />
                 <!-- autocomplete="off"                -->
                 <label class="checkbox2-label" for="checkbox1">
                   <!-- required -->
                   <span class="checkbox-icon"></span>
-                  <span class= checkbox-text>J'ai lu et accepté les conditions d'utilisation.</span>
-                                    
-                </label>                
+                  <span class="checkbox-text"
+                    >J'ai lu et accepté les conditions d'utilisation.</span
+                  >
+                </label>
                 <span></span>
                 <!-- <br /> -->
                 <br />
 
-                <input
-                  class="checkbox-input"
-                  type="checkbox"
-                  id="checkbox2"
-                />
+                <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <!-- <span class="checkbox-icon"></span> -->
                   <span class="checkbox-icon"></span>
-                  <span class= checkbox-text>Je souhaite être prévenu des prochains évènements.</span>
-                  
+                  <span class="checkbox-text"
+                    >Je souhaite être prévenu des prochains évènements.</span
+                  >
                 </label>
                 <!-- <br /> -->
                 <br />
               </div>
               <div class="spanValidation">
-                <span ></span>
-              </div>  
+                <span></span>
+              </div>
               <input class="btn-submit" type="submit" value="C'est parti" />
               <!-- class="button" -->
             </form>
@@ -248,19 +238,17 @@
         </div>
       </div>
       <div class="bground-thanks">
-       <div class="content contentThanks">
-        <span class="close closeThanks"></span>
-        <div class="modal-body">
-          <div class="textThanks">Merci pour votre inscription</div>
-          <button class="btn-closeThanks">Fermer</button>          
+        <div class="content contentThanks">
+          <span class="close closeThanks"></span>
+          <div class="modal-body">
+            <div class="textThanks">Merci pour votre inscription</div>
+            <button class="btn-closeThanks">Fermer</button>
+          </div>
         </div>
-       </div>
-
       </div>
     </main>
     <footer>
       <p class="copyrights">Copyright 2014 - 2022, GameOn Inc.</p>
     </footer>
-    <script src="modal.js"></script>
   </body>
 </html>

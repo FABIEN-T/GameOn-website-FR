@@ -40,7 +40,7 @@ p {
   /* rgba(255, 0, 0, 0.527) */
   }
   
-.error span {
+.error > span {
   display: flex;  
   font-size: 10px;
   visibility: visible;
