@@ -1,10 +1,13 @@
 /**
-* Mis en place de l'icône fa-bars 
+* Mis en place de l'icône fa-bars en mobile
 */
 // const barsButton = document.querySelector("#bars");
+// const barsButton = document.getElementById("bars");
 // barsButton.addEventListener("click", editNav); 
 
 function editNav() {
+  // console.log("bars click2", barsButton.addEventListener("click", editNav));
+  // console.log(barsButton);
   const x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
     x.className += " responsive";
@@ -14,7 +17,7 @@ function editNav() {
 }
 
 /**
-* Lancement de la Modal avec le bouton je m'inscris
+* Lancement de la Modal avec le bouton Je M'inscris
 */
 
 // DOM Elements
@@ -90,6 +93,8 @@ constErrorMessage = (tag, message, valid) => {
     constSpan.textContent = message;
   }
 };
+
+
 
 // Détection des input Prénom/Nom/Email/Date de naisssance/Nombre de tournois et renvoi vers la fonction adéquate
 inputsType.forEach((inputVar) => {
