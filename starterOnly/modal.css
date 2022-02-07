@@ -1,3 +1,5 @@
+/* Déclarations Générales */
+
 :root {
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
@@ -15,7 +17,6 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  /* background-image: url("background.png"); */
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1920px;
@@ -27,33 +28,7 @@ p {
   padding: 0.5vw;
 }
 
-/* img {
-  padding-right: 1rem;
-} */
-
-/******************************************************/
-/******* Création de la classe .error par JS *********/
-/****************************************************/
-.error input {
-  color: #FF4E60;
-  border: 2px solid #fe142f;
-  /* rgba(255, 0, 0, 0.527) */
-  }
-  
-.error > span {
-  display: flex;  
-  font-size: 10px;
-  visibility: visible;
-  opacity: 1;
-  color: #fe142f;
-  margin-top: -5px;
-  margin-bottom: -8px;
-  }
-/***************************************/
-/* main {
-  display: flex;
-  flex-direction: column;
-} */
+/* HEADER */
 
 .topnav {
   overflow: hidden;
@@ -65,16 +40,14 @@ p {
   margin-right: 5vw;
   margin-bottom: 72px;
 }
+
+/* Logo GAMEON */
 .header-logo {
-  /* float: left; */
   width: 320px;
   height: 70px;
-   
-  /* margin-right: 0px; */
 }
-/* .main-navbar {
-  float: right;
-} */
+
+/* navbar */
 .topnav a {
   float: left;
   display: block;
@@ -88,7 +61,7 @@ p {
 }
 
 .topnav a:hover {
-  background-color: #ff0000;
+  background-color: #fe142f;
   color: #ffffff;
   border-radius: 15px;
   text-decoration: underline;
@@ -98,11 +71,12 @@ p {
 
 .topnav a.active {
   display: none;
-  background-color: #ff0000;
+  background-color: #fe142f;
   color: #ffffff;
   border-radius: 15px;
 }
 
+/* Désactivation de l'icône fa-bars en mode Desktop */
 .topnav .icon {
   display: none;
 }
@@ -111,240 +85,19 @@ p {
   height: 50px;
 }
 
-
-
-@media screen and (max-width: 768px) {
-  .topnav {
-    margin-right: 30px;
-    margin-left: 30px;
-    margin-bottom: 0px;
-  }
-
-  .topnav.responsive {
-    position: relative;
-    display: block;
-    /* display: flex;
-    flex-direction: row; */
-    /* justify-content: space-between; */
-    /* align-content: flex-start; */
-    /* flex-wrap: nowrap; */
-    /* margin: 33px 20px 0px; */
-    
-    overflow: visible;   
-  }
-  .main-navbar {
-    margin: 0px;
-  }
- 
-  .topnav a {
-    display: none;
-    margin: 5px 0px;
-  }
-  .topnav a.icon {
-    position: absolute; 
-    /* float: right; */
-    color: #ff0000;
-    /* background-color: rgba(57, 119, 252, 0.5); */
-    /* background-color: white; */
-    border-radius: 15px;
-    display: block;
-    padding: 12px;
-    right: 31px;
-    top: 34px;
-    margin-right: 0px;
-  }
-  
-  .topnav a.icon:hover {
-    position: absolute;    
-    float: right;
-    display: block;
-    color: white;
-    background-color: #ff0000;
-    /* padding: 12px;
-    margin-top: -31px;
-    margin-right: 16px;
-    right: -15px;
-    top: 20px; */
-  }
-
-  .topnav.responsive a.icon {
-    position: absolute;     
-    float: right;
-    display: block;
-    color: white;
-    background-color: #ff0000;
-    border-radius: 15px;
-    padding: 12px;
-    /* margin-top: 2px;
-    margin-right: 35px; */
-    right: 0px;
-    top: -16px;
-  }
- .topnav.responsive a.icon:hover {
-    position: absolute;    
-    float: right;
-    display: block;
-    color: white;
-    background-color: #ff0000;
-    padding: 12px;
-    width: 40px;
-    /* margin-top: -31px;
-    margin-right: 16px;
-    right: -15px;
-    top: 20px;  */
-  } 
-  
-  
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    padding-left: 0px;
-    padding-right: 0px;
-    /* text-align: right; */
-  }
-
-  
-
-  .main-navbar {
-    /* float: right; */
-    /* display: flex;
-    justify-content: space-between; */
-
-    margin-top: 10px;
-    padding: 0px 0px;
-   
-    /* margin-right: -4px;
-    margin-left: -5px; */
-    width: 100%;
-
-  }
-  .header-logo  {
-    height: 40px;
-    width: 110px;
-    /* background-color: #dfd221; */
-  }
-  .header-logo img {
-    height: 19px;
-  }
-  
-  /* .topnav > .icon:hover {
-    color: white;
-  } */
- 
-
-  .topnav.responsive .details {
-    background-color: rgba(34, 66, 170, 0);
-    text-decoration: none;
-    color: #000000;
-    border-radius: 15px;
-  }
-
-  .topnav.responsive a:hover {
-    background-color: #fe142f;
-    text-decoration: underline;
-    text-underline-position: under;
-    text-decoration-thickness: 1px;
-    /* padding-left: 15px; */
-    /* padding-right: 15px; */
-    color: #ffffff;
-    border-radius: 15px;
-    width: 100%;
-  }
-
-  main {
-    margin: 0px 20px 0px;
-    padding: 0px;
-
-  }
-  /* .hero-section {
-    margin: 0px;
-    padding: 0px;
-  } */
-  
-  /* .hero-content {
-    width: 100%;
-  } */
-  
-  .hero-headline {
-    width: 100%;
-    max-width: 100%;
-    /* white-space: wrap; */
-    /* margin: 0px 0px 60px; */
-    padding: 0px;
-  }
-  .hero-text {
-    margin-top: 30px;
-  }
-  .copyrights {
-    font-size: 10px;
-    font-weight: 500;
-    margin-top: 20px;
-  }
-  
-}
-
-/* @media screen and (max-width: 768px) {
-  .topnav.responsive {
-    position: relative;
-  }
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-} */
-
-/* @media screen and (max-width: 540px) {
-  #myTopnav {
-    margin: 33px 30px 28px; */
-    /* height: 22px; */
-    /* display: flex;
-    justify-content: space-between;
-    overflow: visible;
-  }
-
-
-  main {   */
-    /* max-height: 100%;   */
-    /* height: auto; */
-    /* padding: 0px;
-    margin: 0px 20px;
-  }
-  
-  .header-logo {
-    width: 110px;
-  } */
-  /* .hero-headline {
-    max-width: 100vw;
-    background-color: aqua;
-  } */
-  /* .hero-text {
-    font-size: 13px;
-    background-color: #279e7a;
-  }
-} */
-
+/* Section principale incluant le titre, le pragraphe,
+l'image et le bouton pour s'inscrire (lancement de la modal)   */
 main {
-  /* font-size: 130%; */
   font-weight: bolder;
   color: black;
-  /* padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw; */
-  /* margin: 1px 20px 15px; */
   margin-right: 5vw;
   margin-left: 5vw;
   border-radius: 2rem;
   text-align: justify;
 }
 
+/* Bouton de la Modale */
 .modal-btn {
-  /* font-size: 145%; */
   font-size: 25px;
   background: #fe142f;
   display: flex;
@@ -360,14 +113,14 @@ main {
   background: #3876ac;
 }
 
+/* FOOTER */
 .footer {
   margin-left: 30px;
-  /* padding: 10px; */
   font-family: var(--font-slab);
 }
 
-/* Modal form */
-
+/* FORMULAIRE */
+/* Bouton d'inscription */
 .button {
   background: #fe142f;
   margin-top: 0.5em;
@@ -377,15 +130,17 @@ main {
   cursor: pointer;
   font-size: 16px;
 }
-
+/* Bouton d'inscription bleu au survol */
 .button:hover {
   background: #3876ac;
 }
 
-.smFont {
+/* .smFont {
   font-size: 16px;
-}
+} */
 
+/* A l'apparition de la Modal:
+calque bleu transparent entre la page et la Modal */
 .bground {
   display: none;
   position: fixed;
@@ -398,9 +153,9 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
+/* Bloc de la Modal */
 .content {
   margin: 5% auto;
-  /* width: 100%; */
   max-width: 536px;
   animation-name: modalopen;
   animation-duration: var(--modal-duration);
@@ -413,7 +168,7 @@ main {
 }
 
 .contentThanks {
-  height: 843px;
+  height: 125%;
 }
 
 .bground-thanks {
@@ -504,6 +259,24 @@ input[data-error]::after {
     font-size: 0.4em;
     color: red;
 } */
+
+.error input {
+  color: #FF4E60;
+  border: 2px solid #fe142f;
+  /* rgba(255, 0, 0, 0.527) */
+  }
+  
+.error > span {
+  display: flex;  
+  font-size: 10px;
+  visibility: visible;
+  opacity: 1;
+  color: #fe142f;
+  margin-top: -5px;
+  margin-bottom: -8px;
+  }
+
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -574,6 +347,8 @@ input[data-error]::after {
   border: 0;
   background: #c4c4c4;
 }
+
+/* Coche "conditions d'utilisation" et "prochains évènements */
 .checkbox2-label .checkbox-icon::after {
   width: 8px;
   height: 4px;
@@ -586,6 +361,8 @@ input[data-error]::after {
   left: 27%;
   top: 25%;
 }
+
+/* Croix de la fermeture de la Modal */
 .close {
   position: absolute;
   right: 15px;
@@ -596,6 +373,7 @@ input[data-error]::after {
   cursor: pointer;
   transform: scale(0.7);
 }
+
 .close:before,
 .close:after {
   position: absolute;
@@ -611,27 +389,30 @@ input[data-error]::after {
 .close:after {
   transform: rotate(-45deg);
 }
-/* .close:hover {
-  background-color: #fe142f;
-}
-.close:active {
-  background-color: #4714fe;
-} */
 
+/* Bouton de lancement de la Modal "Je M'inscris" */
 .btn-signup {
+  outline: none;
+  text-transform: capitalize;
+  width: 199px;  
+  /* width: 181px; */
+  font-size: 25px;
+  padding: 11px 30px;
+  margin: 0;
   background: #fe142f;
   white-space: nowrap;
   display: block;
   margin: 0 auto;
   border-radius: 8px;
   font-size: 25px;
-  /* padding: 12px 82px; */
-  width: 199px;
-  color: #fff;
+  
+  color: white;
   cursor: pointer;
   border: 0;
 }
 
+/* Bouton de de validation (submit) "C'est parti" et 
+Bouton "Fermer" de la fenêtre de remerciements */
 .btn-submit, .btn-closeThanks {
   background: #fe142f;
   display: block;
@@ -651,7 +432,7 @@ input[data-error]::after {
 }
 
 .btn-submit {
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
 /* custom select styles */
@@ -724,6 +505,8 @@ input[data-error]::after {
 .text-label {
   font-weight: normal;
   font-size: 14px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 /* Détails sur fond rouge en desktop */
@@ -793,22 +576,14 @@ input[data-error]::after {
   margin-bottom: 20px;
   padding: 0;
 }
-.btn-signup {
-  outline: none;
-  text-transform: capitalize;  
-  width: 181px;
-  /* height: 33px; */
-  font-size: 25px;
-  padding: 11px 30px;
-  margin: 0;
-  /* margin-top: 120px; */
-}
+
 .hero-img {
   display: flex;
   flex: 53%;
   overflow: hidden;
   /* grid-column: span 8; */
 }
+
 .hero-img img {
   width: 100%;
   /* height: 100%; */
@@ -816,6 +591,7 @@ input[data-error]::after {
   display: block;
   padding: 0;
 }
+
 .copyrights {
   color: #fe142f;
   font-size: 15px;
@@ -823,16 +599,29 @@ input[data-error]::after {
   /* margin: 60px 0 30px; */
   font-weight: bolder;
 }
+
 .hero-section > .btn-signup {
   display: none;
 }
+
 footer {
   /*padding-left: 2vw;
   padding-right: 2vw; */
   margin: 80px 30px;
 }
 
-@media screen and (max-width: 1020px) {
+
+
+
+
+
+
+
+
+
+
+/* Media queries de 769px à 1024px : ipad pro */
+@media screen and (max-width: 1024px) {
   .hero-headline {
     font-size: 70px;
     line-height: 80px;
@@ -840,68 +629,182 @@ footer {
   .hero-text {
     font-size: 18px;
   }
-  /* .main-navbar {
-    float: left;
-  } */
+
   .hero-section {
     padding: 0px;
     max-width: 100vw;
   }
+
   footer {
     margin-left: 50px;
     padding: 0px;
   }
 }
 
-/* @media screen and (max-width: 800px)  */
+
+
+
+
+
+
+
+
+
+
+
+/* Media queries de 541px à 768px : mobile - tablette */
 @media screen and (max-width: 768px) {
+  .bground {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
   .topnav {
-    /* display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between; */
-    overflow: visible; 
-    /* background-color: #84bdf7; */
-    /* height: 600px; */
-    /* margin: 10px 30px 0px; */
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 0px;
   }
 
+  .topnav.responsive {
+    position: relative;
+    display: block;
+    overflow: visible;   
+  }
+  .main-navbar {
+    margin: 0px;
+    margin-top: 10px;
+    padding: 0px 0px;
+    width: 100%;
+  }
+ 
+  .topnav a {
+    display: none;
+    margin: 5px 0px;
+  }
+
+  .main-navbar .fa-bars {
+    font-size: 22.2px;
+  }
+
+  .topnav a.icon {
+    position: absolute; 
+    color: #fe142f;
+    border-radius: 15px;
+    display: block;
+    padding: 12px;
+    right: 30px;
+    top: 32px;
+    margin-right: 0px;
+  }
+  
+  .topnav a.icon:hover {
+    position: absolute;    
+    float: right;
+    display: block;
+    color: white;
+    background-color: #fe142f;
+  }
+
+  .topnav.responsive a.icon {
+    position: absolute;     
+    float: right;
+    display: block;
+    color: white;
+    background-color: #fe142f;
+    border-radius: 15px;
+    padding: 12px;
+    right: 0px;
+    top: -18px;
+  }
+ .topnav.responsive a.icon:hover {
+    position: absolute;    
+    float: right;
+    display: block;
+    color: white;
+    background-color: #fe142f;
+    padding: 12px;
+    width: 43px;
+  }   
+  
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+ 
+  .topnav.responsive a:hover {
+    background-color: #fe142f;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-thickness: 1px;
+    color: #ffffff;
+    border-radius: 15px;
+    width: 100%;
+  }
+
+  .header-logo {
+    height: 40px;
+    width: 110px;
+  }
+
+  .header-logo img {
+    height: 19px;
+  }
+  
+  .topnav.responsive .details {
+    background-color: rgba(34, 66, 170, 0);
+    text-decoration: none;
+    color: #000000;
+    border-radius: 15px;
+  }
+ 
   main {
-    margin: 0px 30px;
+    margin: 10px 30px 0px;
+    padding: 0px;
   }
-
+    
+  .hero-headline {
+    width: 100%;
+    max-width: 100%;
+    padding: 0px;
+  }
+  
   .hero-section {
     display: flex;
     flex-direction: column;
     box-shadow: unset;
   }
+  
   .hero-content {
     background: #fff;
     color: #000;
-    /* padding: 20px; */
     padding: 0px;
     width: 100%;
   }
+  
   .hero-content::after {
     content: unset;
   }
+
   .hero-content .btn-signup {
     display: none;
   }
+  
   .hero-headline {
     font-size: 40px;
     line-height: 52px;
     white-space: normal;
   }
+
   .hero-text {
-    /* width: unset; */
-    /* font-size: 18px; */
+    margin-top: 30px;
     line-height: 22px;
   }
+
   .hero-img img {
     border-radius: 10px;
-    /* margin-top: 40px; */
   }
+  
   .hero-section > .btn-signup {
     display: block;
     font-size: 14px;
@@ -910,40 +813,68 @@ footer {
     height: 31px;
     padding: 1px 0px 0px;
   }
+  
+  .content {
+    margin: 90px auto 5%;
+  }
+
+  .radioBtn {
+    margin-bottom: 8px;
+  }
+
   .copyrights {
-    /* margin-top: 10px; */
     text-align: center;
     vertical-align: middle;
     font-size: 10px;
     font-weight: 500;
-  }
+    margin-top: 20px;
+  }  
+
   footer {
     margin: 0px 0px 10px;
   }
 } 
 
+
+
+
+
+
+
+
+
+
+
+
+/* Media queries de 338px à 540px : Mobile */
 @media screen and (max-width: 540px) {
   .topnav {
     margin: 33px 20px 0px;
-    /* height: 22px; */
-    /* display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    overflow: visible; */
+  }
+
+  .topnav.responsive a {
+    font-size: 13px;
+  }
+
+  .main-navbar .fa-bars {
+    font-size: 16px;
   }
 
   .topnav a.icon {
-    /* right: 15px; */
-    /* top: 16px */
-    right: 21px;
-    top: 17px;
+    right: 20px;
+    top: 15px;
     margin-right: 0px;
   }
 
+  .main-navbar .fa-bars {
+    font-size: 22.2px;
+  }
+    
+ .topnav.responsive a.icon:hover {
+    height: 47.6px; 
+  } 
 
   main {  
-    /* max-height: 100%;   */
-    /* height: auto; */
     padding: 0px;
     margin: 0px 20px;
   }
@@ -951,20 +882,48 @@ footer {
   .header-logo {
     width: 110px;
   }
-  /* .hero-headline {
-    max-width: 100vw;
-    background-color: aqua;
-  } */
+
+  .checkbox-text {
+    margin-bottom: 5px;
+  }
+
   .hero-text {
     font-size: 13px;
-    /* background-color: #279e7a; */
   }
+
+  .content {
+    margin: 80px auto 5%;
+  }
+
   .copyrights {
     margin-top: 0px;
-  }
-  
+  }  
 }
 
+
+
+
+
+
+
+
+
+
+
+
+/* Media queries à 337px : ajustment de l'interligne sur les cases à cocher */ 
+@media screen and (max-width: 337px) {
+.radioBtn {
+  margin-bottom: 20px;
+  }
+}
+
+
+
+
+
+
+/* Animation de l'apparitionde la Modal */
 @keyframes modalopen {
   from {
     opacity: 0;

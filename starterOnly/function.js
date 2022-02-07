@@ -53,7 +53,7 @@ function lastNameChecker(value) {
 function mailChecker(value) {
   if (!value) {
     constErrorMessage("address", "Le champ Email doit être rempli");
-  } else if (!value.match(/^[\w_-]+@[\w-]+\.[a-z]{2,4}$/)) {
+  } else if (!value.match(/^[\w\._-]+@[\w-]+\.[a-z]{2,4}$/)) {
     console.log("non valide");
     constErrorMessage(
       "address",
