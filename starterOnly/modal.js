@@ -49,20 +49,8 @@ function launchModalThanks() {
 }
 
 /**
- * DÉCLARATION DES VARIABLES DE VALIDATION
- */
-
-let firstNameValue,
-  lastNameValue,
-  emailValue,
-  birthDateValue,
-  quantityValue,
-  radioButtonValue,
-  useCheckValue;
-
-/**
  * DÉTECTION DE LA VALEUR POUR CHAQUE INPUT (champ du formulaire)
- * ET ENVOI VERS LA FONCTION ASSOCIÉE A L'INPUT
+ * ET ENVOI VERS LA FONCTION TEST ASSOCIÉE A L'INPUT
  */
 
 inputsType.forEach((inputVar) => {
@@ -118,6 +106,18 @@ inputsType.forEach((inputVar) => {
     }
   });
 });
+
+/**
+ * DÉCLARATION DES VARIABLES DE VALIDATION
+ */
+
+ let firstNameValue,
+ lastNameValue,
+ emailValue,
+ birthDateValue,
+ quantityValue,
+ radioButtonValue,
+ useCheckValue;
 
 /**
  * VALIDATION DU FORMULAIRE

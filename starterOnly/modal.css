@@ -211,12 +211,12 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
+
 input[data-error]::after {
     content: attr(data-error);
     font-size: 0.4em;
     color: red;
-} */
+}
 
 /* Bordure rouge sur les champs du formulaire */
 .error input {
@@ -363,11 +363,10 @@ input[data-error]::after {
   width: 199px;
   font-size: 25px;
   padding: 11px 30px;
-  margin: 0;
+  margin: 0px;
   background: #fe142f;
   white-space: nowrap;
   display: block;
-  margin: 0 auto;
   border-radius: 8px;
   font-size: 25px;
   color: white;
@@ -492,11 +491,11 @@ Bouton "Fermer" de la fenêtre de remerciements */
   border-radius: 15px;
 }
 
+/* Contenant de hero-content et de hero-image */
 .hero-section {
-  max-width: 87vw;
+  max-width: 86.5vw;
   border-radius: 10px;
   display: flex;
-  grid-template-columns: repeat(12, 1fr);
   overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
@@ -507,6 +506,7 @@ Bouton "Fermer" de la fenêtre de remerciements */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: flex-start;
   width: 40%;
   background: #232323;
   color: #fff;
