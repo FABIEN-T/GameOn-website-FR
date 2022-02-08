@@ -3,7 +3,7 @@
 :root {
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
-  --modal-duration: 0.8s;
+  --Modale-duration: 0.8s;
 }
 
 * {
@@ -86,7 +86,7 @@ p {
 }
 
 /* Section principale incluant le titre, le pragraphe,
-l'image et le bouton pour s'inscrire (lancement de la modal)   */
+l'image et le bouton pour s'inscrire (lancement de la Modale)   */
 main {
   font-weight: bolder;
   color: black;
@@ -96,8 +96,8 @@ main {
   text-align: justify;
 }
 
-/* Bouton de la Modale */
-.modal-btn {
+/* Bouton "Je mincris" pour ouvrir la Modale */
+.Modale-btn {
   font-size: 25px;
   background: #fe142f;
   display: flex;
@@ -109,7 +109,7 @@ main {
   cursor: pointer;
 }
 
-.modal-btn:hover {
+.Modale-btn:hover {
   background: #3876ac;
 }
 
@@ -119,8 +119,9 @@ main {
   font-family: var(--font-slab);
 }
 
-/* FORMULAIRE */
-/* Bouton d'inscription */
+/* FORMULAIRE - Modale */
+
+/* Propirétés communes aux Boutons rouges "Je m'inscris" et "Fermer"  */
 .button {
   background: #fe142f;
   margin-top: 0.5em;
@@ -130,17 +131,20 @@ main {
   cursor: pointer;
   font-size: 16px;
 }
+
 /* Bouton d'inscription bleu au survol */
 .button:hover {
   background: #3876ac;
 }
 
+
+
 /* .smFont {
   font-size: 16px;
 } */
 
-/* A l'apparition de la Modal:
-calque bleu transparent entre la page et la Modal */
+/* A l'apparition de la Modale:
+calque bleu transparent entre la page d'acceuil et la Modale */
 .bground {
   display: none;
   position: fixed;
@@ -153,22 +157,26 @@ calque bleu transparent entre la page et la Modal */
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-/* Bloc de la Modal */
+/* Bloc de la Modale */
 .content {
   margin: 5% auto;
   max-width: 536px;
   animation-name: modalopen;
-  animation-duration: var(--modal-duration);
+  animation-duration: var(--Modale-duration);
   background: #232323;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding-top: 10px;
+  padding: 50px 38px 17px;  
 }
 
-.contentThanks {
+/* .contentThanks {
   height: 125%;
+} */
+
+.button:hover, .btn-submit:hover, .btn-closeThanks:hover {
+  background: #3876ac;
 }
 
 .bground-thanks {
@@ -183,35 +191,17 @@ calque bleu transparent entre la page et la Modal */
   background-color: rgba(26, 39, 156, 0.4);
 }
 
-/* .content-thanks {
-  margin: 5% auto;
-  width: 100%;
-  max-width: 500px;
-  background: #232323;
-  border-radius: 10px;
-  overflow: hidden;
-  position: relative;
-  color: #fff;
-  padding-top: 10px;
-} */
-
-.modal-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  padding: 15px 8%;
-  margin: 15px auto;
+.content-thanks {
+  height: 857px;
 }
 
 .textThanks {
   max-width: 271px;
-  margin-top: 300px;
+  margin: 300px auto 0px;
   font-weight: 400;
   font-size: 36px;
   text-align: center;
 }
-
 
 label {
   font-family: var(--font-default);
@@ -362,7 +352,7 @@ input[data-error]::after {
   top: 25%;
 }
 
-/* Croix de la fermeture de la Modal */
+/* Croix de la fermeture de la Modale */
 .close {
   position: absolute;
   right: 15px;
@@ -390,7 +380,7 @@ input[data-error]::after {
   transform: rotate(-45deg);
 }
 
-/* Bouton de lancement de la Modal "Je M'inscris" */
+/* Bouton de lancement de la Modale "Je M'inscris" */
 .btn-signup {
   outline: none;
   text-transform: capitalize;
@@ -654,10 +644,6 @@ footer {
 
 /* Media queries de 541px à 768px : mobile - tablette */
 @media screen and (max-width: 768px) {
-  .bground {
-    background-color: rgba(0, 0, 0, 0);
-  }
-
   .topnav {
     margin-right: 30px;
     margin-left: 30px;
@@ -895,6 +881,19 @@ footer {
     margin: 80px auto 5%;
   }
 
+  .bground {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  .bground-thanks {
+    display: none;
+    background-color: rgba(26, 39, 156, 0);
+  }
+
+  .content-thanks {
+    height: 657px;
+  }
+
   .copyrights {
     margin-top: 0px;
   }  
@@ -923,7 +922,7 @@ footer {
 
 
 
-/* Animation de l'apparitionde la Modal */
+/* Animation de l'apparitionde la Modale */
 @keyframes modalopen {
   from {
     opacity: 0;
