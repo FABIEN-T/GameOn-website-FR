@@ -7,12 +7,10 @@ GameOn est une entreprise spécialisée dans les conférences et les concours de
 Mission : ajouter le code JavaScript manquant pour que le formulaire d'inscriton soit pleinement fonctionnel.
 
 ## Issues (1)
-
 Ajouter la fonctionnalité au bouton (x)
 
 
 ## Issues (2)
-
 (1) Lier les labels aux entrées dans le HTML en utilisant les attributs "for" et "id" dans le code existant. Corriger le code HTML quand nécessaire.
 (2) Utiliser du JavaScript pur (pas de jQuery) pour terminer le formulaire :
 
@@ -28,7 +26,6 @@ Ajouter la fonctionnalité au bouton (x)
 
 
 ## Issues (3)
-
 Des messages d'erreur spécifiques doivent apparaître sous l'entrée qui n'est pas correcte. Les messages d'erreur doivent s'afficher sous le champ de saisie associé. Exemples :
 
     *"Veuillez entrer 2 caractères ou plus pour le champ du nom."
@@ -38,7 +35,6 @@ Des messages d'erreur spécifiques doivent apparaître sous l'entrée qui n'est 
 
 
 ## Issues (4)
-
 Des messages d'erreur spécifiques doivent apparaître sous l'entrée qui n'est pas correcte. Les messages d'erreur doivent s'afficher sous le champ de saisie associé. Exemples :
 
     *"Veuillez entrer 2 caractères ou plus pour le champ du nom."
@@ -48,7 +44,6 @@ Des messages d'erreur spécifiques doivent apparaître sous l'entrée qui n'est 
 
 
 ## Issues (5)
-
     *Visualiser et tester l'interface utilisateur dans les dernières versions de Chrome et de Firefox, ainsi que dans les versions mobile et desktop. Corriger les erreurs d'affichage existantes.
     *Tester toutes les fonctionnalités des boutons et des entrées de formulaire (tester les valeurs correctes et incorrectes)
 
