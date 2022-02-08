@@ -1,78 +1,57 @@
 /**
-* Mis en place de l'icône fa-bars en mobile
-*/
-// const barsButton = document.querySelector("#bars");
-// const barsButton = document.getElementById("bars");
-// barsButton.addEventListener("click", editNav); 
+ * ATTRIBUTION DES CONSTANTES AUX DOM ELEMENTS
+ */
 
-function editNav() {
-  // console.log("bars click2", barsButton.addEventListener("click", editNav));
-  // console.log(barsButton);
-  const x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
-}
-
-/**
-* Lancement de la Modal avec le bouton Je M'inscris
-*/
-
-// DOM Elements
+// Contenant du Formulaire
 const modalBg = document.querySelector(".bground");
-const modalBgThanks = document.querySelector(".bground-thanks");
+// Bouton "Je m'inscris"
 const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
+// Croix de la fermeture de la Modale
 const closeModalBtn = document.querySelector(".close");
+// Contenant de le Fenêtre de remerciements
+const modalBgThanks = document.querySelector(".bground-thanks");
+// Croix de la fermeture de la Fenêtre de remerciements
 const closeModalCrossThanks = document.querySelector(".closeThanks");
+// Bouton "Fermer" de la Fenêtre de remerciements
 const closeModalBtnThanks = document.querySelector(".btn-closeThanks");
-
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-
-// launch modal form
-function launchModal() {
-  modalBg.style.display = "block";
-}
-
-/**
- * Ouverture de le Fenêtre de remerciements
- */
-function launchModalThanks() {
-  modalBgThanks.style.display = "block";
-}
-
-
-/**
- * Fermeture de la Modal par la croix
- */
-
-// close modal event
-// closeModalBtn.addEventListener("click", () => {
-//   console.log("event closemodal");
-// });
-closeModalBtn.addEventListener("click", closeModal);
-
-// close modal form
-function closeModal() {
-  modalBg.style.display = "none";
-  document.getElementById("form").reset();
-  // const  test = document.getElementsByClassName(".formData"+"> span"); 
-  // test.classList.remove("error");
-}
-
-/**
-* Les données doivent être saisies correctement
-*/
-
-const constForm = document.querySelector("form");
+// Formulaire
+const constForm = document.querySelector("#form");
+// Champs du formulaire
 const inputsType = document.querySelectorAll(
   'input[type="text"], input[type="email"], input[type="date"], input[type="number"], input[type="radio"], input[type="checkbox"]'
 );
 
-// variables de validation du submit
+/**
+ * ECOUTE DES ÉVÉNEMENTS
+ * ET OUVERTURE OU FERMETURE DE LA FENÊTRE DE LA MODALE
+ */
+
+// Ecoute du click sur les 2 boutons "Je M'incris" et lancement de la Modale
+modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+
+// Ouverture de la Modale
+function launchModal() {
+  modalBg.style.display = "block";
+}
+
+// Ecoute du click sur la croix de la Modale
+closeModalBtn.addEventListener("click", closeModal);
+
+// Fermeture de la Modale
+function closeModal() {
+  modalBg.style.display = "none";
+  document.getElementById("form").reset(); // Effacement des champs à la fermeture de la Modale
+}
+
+// Ouverture de le Fenêtre de remerciements
+function launchModalThanks() {
+  modalBgThanks.style.display = "block";
+}
+
+/**
+ * DÉCLARATION DES VARIABLES DE VALIDATION
+ */
+
 let firstNameValue,
   lastNameValue,
   emailValue,
@@ -81,46 +60,37 @@ let firstNameValue,
   radioButtonValue,
   useCheckValue;
 
-// MESSAGE D'ERREUR
-constErrorMessage = (tag, message, valid) => {
-  const constClass = document.querySelector("." + tag);
-  const constSpan = document.querySelector("." + tag + "> span");
-  if (!valid) {
-    constClass.classList.add("error");
-    constSpan.textContent = message;
-  } else {
-    constClass.classList.remove("error");
-    constSpan.textContent = message;
-  }
-};
+/**
+ * DÉTECTION DE LA VALEUR POUR CHAQUE INPUT (champ du formulaire)
+ * ET ENVOI VERS LA FONCTION ASSOCIÉE A L'INPUT
+ */
 
-
-
-// Détection des input Prénom/Nom/Email/Date de naisssance/Nombre de tournois et renvoi vers la fonction adéquate
 inputsType.forEach((inputVar) => {
   inputVar.addEventListener("input", (e) => {
-    // console.log("input", e.target.value);
-
     switch (e.target.id) {
       case "first":
-        e.target.value = e.target.value.replace(/[\-]+/g, "-");
-        e.target.value = e.target.value.replace(/^[\s]/, ""); 
-        e.target.value = e.target.value.replace(/[\s]+/g, " ");
+        e.target.value = e.target.value.replace(/^[\s]/, ""); // supprime les espaces en début de chaîne
+        e.target.value = e.target.value.replace(/[\s]+/g, " "); // remplace les espaces successifs au milieu de la chaîne par un seul espace
+        e.target.value = e.target.value.replace(/[\-]+/g, "-"); // remplace de multiples tirets successifs par un seul tiret
+        e.target.value = e.target.value.replace(/[\']+/g, "'"); // remplace de multiples apostrophes successifs par un seul apostrophe
         firstNameChecker(e.target.value);
         break;
       case "last":
-        e.target.value = e.target.value.replace(/[\-]+/g, "-");
-        e.target.value = e.target.value.replace(/^[\s]/, ""); 
-        e.target.value = e.target.value.replace(/[\s]+/g, " ");
+        e.target.value = e.target.value.replace(/^[\s]/, ""); // supprime les espaces en début de chaîne
+        e.target.value = e.target.value.replace(/[\s]+/g, " "); // remplace les espaces successifs au milieu de la chaîne par un seul espace
+        e.target.value = e.target.value.replace(/[\-]+/g, "-"); // remplace de multiples tirets successifs par un seul tiret
+        e.target.value = e.target.value.replace(/[\']+/g, "'"); // remplace de multiples apostrophes successifs par un seul apostrophe
         lastNameChecker(e.target.value);
         break;
       case "email":
+        e.target.value = e.target.value.replace(/^[\s]/, ""); // supprime les espaces en début de chaîne
         mailChecker(e.target.value);
         break;
       case "birthdate":
         birthChecker(e.target.value);
         break;
       case "quantity":
+        e.target.value = e.target.value.replace(/^[\s]/, ""); // supprime les espaces en début de chaîne
         quantityChecker(e.target.value);
         break;
       case "location1":
@@ -145,77 +115,29 @@ inputsType.forEach((inputVar) => {
         useChecker(e.target.value);
         break;
       default:
-        console.log("pas de réaction");
     }
   });
 });
 
 /**
- * Le formulaire doit être valide quand l'utilisateur clique sur "Submit" ("C'est parti")
+ * VALIDATION DU FORMULAIRE
  */
 
-// Vérification de tous les champs et Validation du formulaire le cas échéant
+// Écoute du "click" sur le bouton "C'est parti" (submit : envoi du Formulaire)
 constForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  // console.log('SUBMIT!!!')
-  // const constClassValidation = document.querySelector(".spanValidation");
-  // const constSpanValidation = document.querySelector(".spanValidation > span");
-  const constEmptyField =
-    firstNameValue &&
-    lastNameValue &&
-    emailValue &&
-    birthDateValue &&
-    quantityValue &&
-    radioButtonValue &&
-    useCheckValue;
+  e.preventDefault(); // empêche l'envoi du formulaire
 
-  console.log(
-    "SUBMIT",
-    firstNameValue,
-    lastNameValue,
-    emailValue,
-    birthDateValue,
-    quantityValue,
-    radioButtonValue,
-    useCheckValue
-  );
+  // Envoi des valeurs de chaque champ (input) vers la fonction de test et validation
+  firstNameChecker(firstNameValue);
+  lastNameChecker(lastNameValue);
+  mailChecker(emailValue);
+  birthChecker(birthDateValue);
+  quantityChecker(quantityValue);
+  radioChecker(radioButtonValue);
+  useChecker(useCheckValue);
 
-  // if (!constEmptyField) {
-  //   console.log("Champs vides", constEmptyField);
-  //   ErrorValidation("POURRI Veuillez remplir le(s) champ(s) correctement.", false, useCheckValue,);
-  // } else {
-  //   ErrorValidation("", true);
-  //   console.log("tous les champs OK");
-  // }
-
-  if (!firstNameValue) {
-    console.log("Validation", firstNameValue);
-    // ErrorValidation("Veuillez remplir le(s) champ(s) correctement.");
-    firstNameChecker(firstNameValue);
-  }
-  if (!lastNameValue) {
-    // ErrorValidation("Veuillez remplir le(s) champ(s) correctement.");
-    lastNameChecker(lastNameValue);
-  }
-  if (!emailValue) {
-    // ErrorValidation("Veuillez remplir le(s) champ(s) correctement.");
-    mailChecker(emailValue);
-  }
-  if (!birthDateValue) {
-    // ErrorValidation("Veuillez remplir le(s) champ(s) correctement.");
-    birthChecker(birthDateValue);
-  }
-  if (!quantityValue) {
-    // ErrorValidation("Veuillez remplir le(s) champ(s) correctement.");
-    quantityChecker(quantityValue);
-  }
-  if (!radioButtonValue) {
-    // ErrorValidation("Veuillez remplir le(s) champ(s) correctement.");
-    radioChecker(radioButtonValue);
-  }
-  if (!useCheckValue) {
-    useChecker(useCheckValue);
-  } if (
+  // SI tous les champs sont corrects
+  if (
     firstNameValue &&
     lastNameValue &&
     emailValue &&
@@ -224,30 +146,13 @@ constForm.addEventListener("submit", (e) => {
     radioButtonValue &&
     useCheckValue
   ) {
-    // ErrorValidation("", true);
-    // console.log("tous les champs OK");
-    firstNameValue = null
-    lastNameValue = null,
-    emailValue = null,
-    birthDateValue = null,
-    quantityValue = null,
-    radioButtonValue = null,
-    useCheckValue = null;
-    launchModalThanks();
-    console.log(
-      "nouvel état",
-      firstNameValue,
-      lastNameValue,
-      emailValue,
-      birthDateValue,
-      quantityValue,
-      radioButtonValue,
-      useCheckValue
-    );
-    document.getElementById("form").reset();
-    // constClassValidation.classList.add("error");
-    // constSpanValidation.textContent = "";
+    // ALORS Fermeture de la Modale
     closeModal();
+    // Effacement des champs du formulaire
+    document.getElementById("form").reset();
+    // Ouverture de la fenêtre de remerciements
+    launchModalThanks();
+    // Fermeture de la fenêtre de remerciements avec "clic" sur la Croix ou sur le Bouton "Fermer"
     closeModalCrossThanks.addEventListener("click", closeModalThanks);
     closeModalBtnThanks.addEventListener("click", closeModalThanks);
     function closeModalThanks() {

@@ -33,7 +33,7 @@ p {
 .topnav {
   overflow: hidden;
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 50px;
   margin-left: 5vw;
@@ -109,10 +109,6 @@ main {
   cursor: pointer;
 }
 
-.Modale-btn:hover {
-  background: #3876ac;
-}
-
 /* FOOTER */
 .footer {
   margin-left: 30px;
@@ -121,31 +117,14 @@ main {
 
 /* FORMULAIRE - Modale */
 
-/* Propirétés communes aux Boutons rouges "Je m'inscris" et "Fermer"  */
-.button {
-  background: #fe142f;
-  margin-top: 0.5em;
-  padding: 1em;
-  color: #fff;
-  border-radius: 15px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-/* Bouton d'inscription bleu au survol */
-.button:hover {
-  background: #3876ac;
-}
-
-
-
 /* .smFont {
   font-size: 16px;
 } */
 
-/* A l'apparition de la Modale:
+/* A l'apparition de la Modale et de la fenêtre de remerciements :
 calque bleu transparent entre la page d'acceuil et la Modale */
-.bground {
+.bground,
+.bground-thanks {
   display: none;
   position: fixed;
   z-index: 1;
@@ -168,33 +147,15 @@ calque bleu transparent entre la page d'acceuil et la Modale */
   overflow: hidden;
   position: relative;
   color: #fff;
-  padding: 50px 38px 17px;  
+  padding: 50px 38px 17px;
 }
 
-/* .contentThanks {
-  height: 125%;
-} */
-
-.button:hover, .btn-submit:hover, .btn-closeThanks:hover {
-  background: #3876ac;
-}
-
-.bground-thanks {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background-color: rgba(26, 39, 156, 0.4);
-}
-
+/* Hauteur de la fenêtre de remerciements */
 .content-thanks {
   height: 857px;
 }
 
+/* Mise en forme du texte de remerciements */
 .textThanks {
   max-width: 271px;
   margin: 300px auto 0px;
@@ -203,6 +164,7 @@ calque bleu transparent entre la page d'acceuil et la Modale */
   text-align: center;
 }
 
+/* Mise en forme des labels */
 label {
   font-family: var(--font-default);
   font-size: 14px;
@@ -210,21 +172,26 @@ label {
   display: inline-block;
   margin-bottom: 17px;
 }
+
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
   outline: none;
 }
+
+/* Mise en forme des champs du formulaire */
 .text-control {
   margin: 0;
   padding: 8px;
   width: 100%;
   border-radius: 8px;
   font-size: 20px;
-  /* height: 48px; */
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;;
+  font-weight: 400;
   height: 64px;
   margin-bottom: 10px;
 }
+
 .formData[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -240,6 +207,7 @@ input {
 .formData[data-error-visible="true"]::after {
   opacity: 1;
 }
+
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
@@ -250,22 +218,23 @@ input[data-error]::after {
     color: red;
 } */
 
+/* Bordure rouge sur les champs du formulaire */
 .error input {
-  color: #FF4E60;
+  color: #ff4e60;
   border: 2px solid #fe142f;
   /* rgba(255, 0, 0, 0.527) */
-  }
-  
+}
+
+/* Mise en forme des messages d'erreurs */
 .error > span {
-  display: flex;  
+  display: flex;
   font-size: 10px;
   visibility: visible;
   opacity: 1;
   color: #fe142f;
   margin-top: -5px;
   margin-bottom: -8px;
-  }
-
+}
 
 .checkbox-label,
 .checkbox2-label {
@@ -275,15 +244,15 @@ input[data-error]::after {
   font-size: 12px;
   font-weight: normal;
 }
+
+/* Mise en forme des boutons radios */
 .checkbox-label .checkbox-icon,
 .checkbox2-label .checkbox-icon {
   display: block;
-  /* vertical-align: middle; */
   text-align: center;
   width: 25px;
   height: 25px;
   border: 1px solid #279e7a;
-  /* border: 1px solid #c4c4c4; */
   border-radius: 50%;
   text-indent: 29px;
   white-space: nowrap;
@@ -292,6 +261,7 @@ input[data-error]::after {
   top: -1px;
   transition: 0.3s;
 }
+
 .checkbox-label .checkbox-icon::after,
 .checkbox2-label .checkbox-icon::after {
   content: "";
@@ -316,29 +286,35 @@ input[data-error]::after {
   margin-left: 2px;
 }
 
+/* Mise en forme des cases à cocher
+"conditions d'utilisation" et "prochains évènements" */
 .checkbox-text {
   display: block;
   padding-top: 3px;
   padding-left: 5px;
 }
 
+/* Désactivation des boutons-radios et cases à cocher natives */
 .checkbox-input {
   display: none;
 }
+
 .checkbox-input:checked + .checkbox-label .checkbox-icon::after,
 .checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
   opacity: 1;
 }
+
 .checkbox-input:checked + .checkbox2-label .checkbox-icon {
   background: #279e7a;
 }
+
 .checkbox2-label .checkbox-icon {
   border-radius: 4px;
   border: 0;
   background: #c4c4c4;
 }
 
-/* Coche "conditions d'utilisation" et "prochains évènements */
+/* Création des Coches "conditions d'utilisation" et "prochains évènements" */
 .checkbox2-label .checkbox-icon::after {
   width: 8px;
   height: 4px;
@@ -352,7 +328,7 @@ input[data-error]::after {
   top: 25%;
 }
 
-/* Croix de la fermeture de la Modale */
+/* Création de la Croix de la fermeture de la Modale */
 .close {
   position: absolute;
   right: 15px;
@@ -384,8 +360,7 @@ input[data-error]::after {
 .btn-signup {
   outline: none;
   text-transform: capitalize;
-  width: 199px;  
-  /* width: 181px; */
+  width: 199px;
   font-size: 25px;
   padding: 11px 30px;
   margin: 0;
@@ -395,15 +370,15 @@ input[data-error]::after {
   margin: 0 auto;
   border-radius: 8px;
   font-size: 25px;
-  
   color: white;
   cursor: pointer;
   border: 0;
 }
 
-/* Bouton de de validation (submit) "C'est parti" et 
+/* Mise en forme du Bouton de validation (submit) "C'est parti" et 
 Bouton "Fermer" de la fenêtre de remerciements */
-.btn-submit, .btn-closeThanks {
+.btn-submit,
+.btn-closeThanks {
   background: #fe142f;
   display: block;
   margin: 0px auto;
@@ -415,6 +390,13 @@ Bouton "Fermer" de la fenêtre de remerciements */
   color: #fff;
   cursor: pointer;
   border: 0;
+}
+
+/* Boutons "Je M'inscris", "C'est parti" et "Fermer" deviennent bleu au survol */
+.modal-btn:hover,
+.btn-submit:hover,
+.btn-closeThanks:hover {
+  background: #3876ac;
 }
 
 .btn-closeThanks {
@@ -491,6 +473,7 @@ Bouton "Fermer" de la fenêtre de remerciements */
 .same-as-selected {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
 /* custom select end */
 .text-label {
   font-weight: normal;
@@ -499,7 +482,7 @@ Bouton "Fermer" de la fenêtre de remerciements */
   margin-bottom: 5px;
 }
 
-/* Détails sur fond rouge en desktop */
+/* Item Détails (de la navbar) sur fond rouge en mode desktop */
 .topnav .details {
   background-color: #fe142f;
   text-decoration: underline;
@@ -508,33 +491,29 @@ Bouton "Fermer" de la fenêtre de remerciements */
   color: white;
   border-radius: 15px;
 }
-.hero-section {  
-  /* max-height: 657px; */
-  /* min-height: 93vh; */
+
+.hero-section {
   max-width: 87vw;
   border-radius: 10px;
   display: flex;
-  /* display: grid; */
   grid-template-columns: repeat(12, 1fr);
   overflow: hidden;
   box-shadow: 0 2px 7px 2px rgba(0, 0, 0, 0.2);
   margin-bottom: 10px;
 }
+
 .hero-content {
   padding: 53px 56px;
   display: flex;
   flex-direction: column;
-  justify-content:space-between; 
-  width: 40%; 
-  /* flex: 25%; */
-  /* grid-column: span 4; */
-  /* background: #417e0993; */
+  justify-content: space-between;
+  width: 40%;
   background: #232323;
   color: #fff;
   position: relative;
   text-align: left;
-  /* min-width: 424px; */
 }
+
 .hero-content::after {
   content: "";
   width: 0%;
@@ -545,20 +524,21 @@ Bouton "Fermer" de la fenêtre de remerciements */
   right: -80px;
   top: 0;
 }
+
 .hero-content > * {
   position: relative;
   z-index: 1;
 }
+
 .hero-headline {
   margin: 0;
-  /* width: 600px; */
   font-size: 96px;
   line-height: 125px;
   font-weight: 500;
   white-space: nowrap;
 }
+
 .hero-text {
-  /* width: 146%; */
   font-weight: 400;
   font-size: 24px;
   line-height: 31px;
@@ -571,12 +551,10 @@ Bouton "Fermer" de la fenêtre de remerciements */
   display: flex;
   flex: 53%;
   overflow: hidden;
-  /* grid-column: span 8; */
 }
 
 .hero-img img {
   width: 100%;
-  /* height: 100%; */
   object-fit: cover;
   display: block;
   padding: 0;
@@ -586,29 +564,17 @@ Bouton "Fermer" de la fenêtre de remerciements */
   color: #fe142f;
   font-size: 15px;
   font-weight: 500;
-  /* margin: 60px 0 30px; */
   font-weight: bolder;
 }
 
+/* Désactivation du 2ème Bouton de lancement de la Modale "Je M'inscris" */
 .hero-section > .btn-signup {
   display: none;
 }
 
 footer {
-  /*padding-left: 2vw;
-  padding-right: 2vw; */
   margin: 80px 30px;
 }
-
-
-
-
-
-
-
-
-
-
 
 /* Media queries de 769px à 1024px : ipad pro */
 @media screen and (max-width: 1024px) {
@@ -631,17 +597,6 @@ footer {
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* Media queries de 541px à 768px : mobile - tablette */
 @media screen and (max-width: 768px) {
   .topnav {
@@ -653,15 +608,16 @@ footer {
   .topnav.responsive {
     position: relative;
     display: block;
-    overflow: visible;   
+    overflow: visible;
   }
+
   .main-navbar {
     margin: 0px;
     margin-top: 10px;
     padding: 0px 0px;
     width: 100%;
   }
- 
+
   .topnav a {
     display: none;
     margin: 5px 0px;
@@ -671,8 +627,9 @@ footer {
     font-size: 22.2px;
   }
 
+  /* Mise en forme de l'icône de menu */
   .topnav a.icon {
-    position: absolute; 
+    position: absolute;
     color: #fe142f;
     border-radius: 15px;
     display: block;
@@ -681,17 +638,16 @@ footer {
     top: 32px;
     margin-right: 0px;
   }
-  
+
+  /* Mise en forme de l'icône de menu au survol de la souris */
   .topnav a.icon:hover {
-    position: absolute;    
-    float: right;
-    display: block;
     color: white;
     background-color: #fe142f;
   }
 
+  /* Mise en forme de l'icône de menu active */
   .topnav.responsive a.icon {
-    position: absolute;     
+    position: absolute;
     float: right;
     display: block;
     color: white;
@@ -701,28 +657,31 @@ footer {
     right: 0px;
     top: -18px;
   }
- .topnav.responsive a.icon:hover {
-    position: absolute;    
+
+  /* Maintien de la forme de l'icône de menu active au survol de la souris */
+  .topnav.responsive a.icon:hover {
+    position: absolute;
     float: right;
     display: block;
     color: white;
     background-color: #fe142f;
     padding: 12px;
     width: 43px;
-  }   
-  
+  }
+
+  /* Mise en forme des items du navbar */
   .topnav.responsive a {
     float: none;
     display: block;
     padding-left: 0px;
     padding-right: 0px;
   }
- 
+
   .topnav.responsive a:hover {
     background-color: #fe142f;
     text-decoration: underline;
     text-underline-position: under;
-    text-decoration-thickness: 1px;
+    text-decoration-thickness: 4px;
     color: #ffffff;
     border-radius: 15px;
     width: 100%;
@@ -733,49 +692,52 @@ footer {
     width: 110px;
   }
 
+  /* Réduction de la taille du logo */
   .header-logo img {
     height: 19px;
   }
-  
+
+  /* Désactivation du fond rouge sur l'item Détails */
   .topnav.responsive .details {
     background-color: rgba(34, 66, 170, 0);
     text-decoration: none;
     color: #000000;
     border-radius: 15px;
   }
- 
+
   main {
     margin: 10px 30px 0px;
     padding: 0px;
   }
-    
+
   .hero-headline {
     width: 100%;
     max-width: 100%;
     padding: 0px;
   }
-  
+
   .hero-section {
     display: flex;
     flex-direction: column;
     box-shadow: unset;
   }
-  
+
   .hero-content {
     background: #fff;
     color: #000;
     padding: 0px;
     width: 100%;
   }
-  
+
   .hero-content::after {
     content: unset;
   }
 
+  /* Désactivation du 1er bouton Bouton de lancement de la Modale "Je M'inscris" */
   .hero-content .btn-signup {
     display: none;
   }
-  
+
   .hero-headline {
     font-size: 40px;
     line-height: 52px;
@@ -790,7 +752,7 @@ footer {
   .hero-img img {
     border-radius: 10px;
   }
-  
+
   .hero-section > .btn-signup {
     display: block;
     font-size: 14px;
@@ -799,7 +761,7 @@ footer {
     height: 31px;
     padding: 1px 0px 0px;
   }
-  
+
   .content {
     margin: 90px auto 5%;
   }
@@ -814,23 +776,12 @@ footer {
     font-size: 10px;
     font-weight: 500;
     margin-top: 20px;
-  }  
+  }
 
   footer {
     margin: 0px 0px 10px;
   }
-} 
-
-
-
-
-
-
-
-
-
-
-
+}
 
 /* Media queries de 338px à 540px : Mobile */
 @media screen and (max-width: 540px) {
@@ -855,16 +806,16 @@ footer {
   .main-navbar .fa-bars {
     font-size: 22.2px;
   }
-    
- .topnav.responsive a.icon:hover {
-    height: 47.6px; 
-  } 
 
-  main {  
+  .topnav.responsive a.icon:hover {
+    height: 47.6px;
+  }
+
+  main {
     padding: 0px;
     margin: 0px 20px;
   }
-  
+
   .header-logo {
     width: 110px;
   }
@@ -877,10 +828,13 @@ footer {
     font-size: 13px;
   }
 
+  /* Nouveau positionnement de la modale et de la fenêtre de remerciements
+  pour laisser apparaître le logo */
   .content {
     margin: 80px auto 5%;
   }
 
+  /* Désactivation du calque bleu */
   .bground {
     background-color: rgba(0, 0, 0, 0);
   }
@@ -896,31 +850,15 @@ footer {
 
   .copyrights {
     margin-top: 0px;
-  }  
-}
-
-
-
-
-
-
-
-
-
-
-
-
-/* Media queries à 337px : ajustment de l'interligne sur les cases à cocher */ 
-@media screen and (max-width: 337px) {
-.radioBtn {
-  margin-bottom: 20px;
   }
 }
 
-
-
-
-
+/* Media queries à 337px : ajustment de l'interligne sur les cases à cocher */
+@media screen and (max-width: 337px) {
+  .radioBtn {
+    margin-bottom: 20px;
+  }
+}
 
 /* Animation de l'apparitionde la Modale */
 @keyframes modalopen {

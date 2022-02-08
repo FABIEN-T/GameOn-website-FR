@@ -1,166 +1,203 @@
-// (1) Le champ Prénom a un minimum de 2 caractères / n'est pas vide.
-// Contrôle du PRENOM
+/**
+ * SWITCH CLASS RESPONSIVE
+ * Lors du clic sur l'icône menu "fa-bars" :
+ * lancement de la fonction editNav qui switch entre la classe "topnav" et "topnav.responsive"
+ */
+function editNav() {
+  let x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
 
+/**
+ * MESSAGE D'ERREUR APPELÉ PAR LES FONCTIONS DE VALIDATION DES CHAMPS (INPUTS)
+ */
+function errorMessage(tag, message, valid) {
+  const constClass = document.querySelector("." + tag); // Ajout du "." avant le nom de classe
+  const constSpan = document.querySelector("." + tag + "> span"); // Balise span de la classe donnée
+  if (!valid) {
+    // Si non valide : Ajout de la classe "error" permettant la mise en forme CSS en rouge
+    constClass.classList.add("error");
+    // Ecriture du message d'erreur dans la balise span du document HTML
+    constSpan.textContent = message;
+  } else {
+    // Si valide : Suppression de la classe "error" et de la mise en forme CSS en rouge
+    constClass.classList.remove("error");
+    // Ecriture du message (vide) dans la balise span du document HTML
+    constSpan.textContent = message;
+  }
+}
+
+/**
+ * FONCTIONS DE TEST ET VALIDATION DES CHAMPS (INPUTS)
+ */
+
+/**
+ * CONTRÔLE DU PRENOM
+ * Issues(1) Le champ Prénom a un minimum de 2 caractères / n'est pas vide.
+ */
 function firstNameChecker(value) {
   if (!value) {
-    constErrorMessage("firstName", "Le champ Prénom doit être rempli");
+    //Si la valeur n'est pas bonne, attribuer "null" à firstNameValue
+    errorMessage("firstName", "Le champ Prénom doit être rempli");
+    firstNameValue = null;
   } else if (value.length > 0 && (value.length < 2 || value.length > 40)) {
-    constErrorMessage(
+    errorMessage(
       "firstName",
       "Veuillez entrer entre 2 et 40 caractères pour le champ Prénom."
     );
     firstNameValue = null;
   } else if (!value.match(/^[a-zA-Z\s\-À-ÖØ-öø-ÿ']+$/)) {
-    constErrorMessage(
+    // regex exluant les caractères spéciaux et les chiffres
+    errorMessage(
       "firstName",
       "Il ne doit pas y avoir de caractères spéciaux ou de chiffres."
     );
     firstNameValue = null;
+    // Sinon attribuer "true" pour que errorMessage enlève la classe "error" et le message
   } else {
-    constErrorMessage("firstName", "", true);
+    errorMessage("firstName", "", true);
     firstNameValue = value.trim();
-
   }
   console.log("First", firstNameValue);
 }
 
-// (2) Le champ du nom de famille a un minimum de 2 caractères / n'est pas vide.
-// Contrôle du NOM
+/**
+ * CONTRÔLE DU NOM
+ * Issues(2) Le champ du nom de famille a un minimum de 2 caractères / n'est pas vide.
+ */
 function lastNameChecker(value) {
   if (!value) {
-    constErrorMessage("lastName", "Le champ Nom doit être rempli");
+    errorMessage("lastName", "Le champ Nom doit être rempli");
+    lastNameValue = null;
   } else if (value.length > 0 && (value.length < 2 || value.length > 40)) {
-    constErrorMessage(
+    errorMessage(
       "lastName",
       "Veuillez entrer entre 2 et 40 caractères pour le champ Nom."
     );
     lastNameValue = null;
-  } else if (!value.match((/^[a-zA-Z\s\-À-ÖØ-öø-ÿ']+$/))) {
-    constErrorMessage(
+  } else if (!value.match(/^[a-zA-Z\s\-À-ÖØ-öø-ÿ']+$/)) {
+    errorMessage(
       "lastName",
       "Il ne doit pas y avoir de caractères spéciaux ou de chiffres."
     );
     lastNameValue = null;
   } else {
-    constErrorMessage("lastName", "", true);
+    errorMessage("lastName", "", true);
     lastNameValue = value.trim();
   }
   console.log("Last", lastNameValue);
 }
 
-//(3) L'adresse électronique est valide.
-// Contrôle de l'Email
+/**
+ * CONTRÔLE DE L'EMAIL
+ * Issues(3) L'adresse électronique est valide.
+ */
 function mailChecker(value) {
   if (!value) {
-    constErrorMessage("address", "Le champ Email doit être rempli");
+    emailValue = null;
+    errorMessage("address", "Le champ Email doit être rempli");
   } else if (!value.match(/^[\w\._-]+@[\w-]+\.[a-z]{2,4}$/)) {
-    console.log("non valide");
-    constErrorMessage(
+    errorMessage(
       "address",
       "L'adresse du courriel n'est pas valide (ne pas mettre d'espace)."
     );
     emailValue = null;
   } else {
-    constErrorMessage("address", "", true);
+    errorMessage("address", "", true);
     emailValue = value.trim();
   }
   console.log("Email", emailValue);
 }
 
-// Contrôle de la date de naissance
+/**
+ * CONTRÔLE DE LA DATE DE NAISSANCE
+ */
 function birthChecker(value) {
-  // const constBirth = document.querySelector('.birth');
   if (!value) {
-    constErrorMessage("birth", "Le champ date de naissance doit être rempli");
+    birthDateValue = null;
+    errorMessage("birth", "Le champ date de naissance doit être rempli");
   } else if (!value.match(/[0-9]/)) {
     console.log("la date est vide", value);
-    constErrorMessage("birth", "Vous devez entrer votre date de naissance.");
+    errorMessage("birth", "Vous devez entrer votre date de naissance.");
     birthDateValue = null;
   } else {
-    console.log("date", value);
-    constErrorMessage("birth", "", true);
+    errorMessage("birth", "", true);
     birthDateValue = value;
   }
+  console.log("date", value);
 }
 
-// Contrôle de la quantité
+/**
+ * CONTRÔLE DE LA QUANTITÉ
+ * Issues(4) Pour le nombre de concours, une valeur numérique est saisie.
+ */
 function quantityChecker(value) {
   if (!value) {
-    constErrorMessage("number", "Le champ nombre de trournoi doit être rempli");
+    errorMessage("number", "Le champ nombre de trournoi doit être rempli");
+    quantityValue = null;
   } else if (!value.match(/^[0-9][0-9]?$/)) {
     console.log("bad quantity", value);
-    constErrorMessage("number", "Le chiffre doit être compris entre 1 et 99.");
+    errorMessage("number", "Le chiffre doit être compris entre 0 et 99.");
     quantityValue = null;
   } else {
     console.log("good quantity", value);
-    constErrorMessage("number", "", true);
+    errorMessage("number", "", true);
     quantityValue = value;
   }
 }
 
-// Détection de l'input radio de classe "checkbox-input" (choix de la ville)
+/**
+ * CONTRÔLE DES BOUTONS RADIO
+ * Issues(5) Un bouton radio est sélectionné.
+ */
 function radioChecker(value) {
   const constRadioClass = document.querySelector(".radioBtn");
   const constRadioSpan = document.querySelector(".radioBtn > span");
   console.log("VALUE", value);
 
-  if (value === undefined || value === null) {
+  if (!value) {
+    // Si non valide : Ajout de la classe "error" permettant la mise en forme CSS en rouge du message
     constRadioClass.classList.add("error");
+    // Ecriture du message d'erreur dans la balise span du document HTML
     constRadioSpan.textContent = "Vous devez choisir une ville.";
     radioButtonValue = null;
     console.log("radiochecker NO", value);
   } else {
+    // Si valide : Suppression de la classe "error" et de la mise en forme CSS en rouge du message
     constRadioClass.classList.remove("error");
+    // Ecriture du message (vide) dans la balise span du document HTML
     constRadioSpan.textContent = "";
     radioButtonValue = value;
     console.log("radiochecker OK", value);
   }
 }
 
-// Contrôle coche Conditions d'utilisation
+/**
+ * CONTRÔLE DE LA COCHE DES CONDITIONS D'UTILISATION
+ * Issues(6) La case des conditions générales est cochée, l'autre case est facultative / peut être laissée décochée.
+ */
 function useChecker(value) {
   if (!value) {
-    constErrorMessage(
+    errorMessage(
       "checkboxOne",
       "Vous devez vérifier que vous acceptez les termes et conditions d'utilisation."
     );
+    useCheckValue = null;
   } else if (!document.getElementById("checkbox1").checked) {
     console.log("décoché");
-    constErrorMessage(
+    errorMessage(
       "checkboxOne",
       "Vous devez vérifier que vous acceptez les termes et conditions d'utilisation."
     );
     useCheckValue = null;
   } else {
     console.log("coché");
-    constErrorMessage("checkboxOne", "", true);
+    errorMessage("checkboxOne", "", true);
     useCheckValue = value;
     console.log("useCheckValue", useCheckValue);
   }
 }
-
-function ErrorValidation(message) {
-  const constClassValidation = document.querySelector(".spanValidation");
-  const constSpanValidation = document.querySelector(".spanValidation > span");
-  constClassValidation.classList.add("error");
-  constSpanValidation.textContent = message;
-}
-
-
-// Message d'erreur à la Validation
-// function ErrorValidation(message, valid) {
-//   const constClassValidation = document.querySelector(".spanValidation");
-//   const constSpanValidation = document.querySelector(".spanValidation > span");
-  
-//   console.log("True ou false ?", valid);
-//   if (!valid) {
-//     constClassValidation.classList.add("error");
-//     constSpanValidation.textContent = message;
-//     console.log("TEST Veuillez remplir le(s) champ(s) correctement.");
-//   } else {
-//     constClassValidation.classList.remove("error");
-//     constSpanValidation.textContent = message;
-//     console.log("OK");
-//   }  
-// }
-
