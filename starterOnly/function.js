@@ -50,7 +50,7 @@ function firstNameChecker(value) {
       "Veuillez entrer entre 2 et 40 caractères pour le champ Prénom."
     );
     firstNameValue = null;
-  } else if (!value.match(/^[a-zA-Z\s\-À-ÖØ-öø-ÿ'\^_]+$/)) {
+  } else if (!value.match(/^[a-zA-Z\s\-À-ÖØ-öø-ÿ']+$/g)) {
     // regex exluant les caractères spéciaux et les chiffres
     errorMessage(
       "firstName",
@@ -79,7 +79,7 @@ function lastNameChecker(value) {
       "Veuillez entrer entre 2 et 40 caractères pour le champ Nom."
     );
     lastNameValue = null;
-  } else if (!value.match(/^[a-zA-Z\s\-À-ÖØ-öø-ÿ']+$/)) {
+  } else if (!value.match(/^[a-zA-Z\s\-À-ÖØ-öø-ÿ']+$/g)) {
     errorMessage(
       "lastName",
       "Il ne doit pas y avoir de caractères spéciaux ou de chiffres."
@@ -100,7 +100,7 @@ function mailChecker(value) {
   if (!value) {
     emailValue = null;
     errorMessage("address", "Le champ Email doit être rempli");
-  } else if (!value.match(/^[\w\._-]+@[\w-]+\.[a-z]{2,4}$/)) {
+  } else if (!value.match(/^[\w\._-]+@[\w-]+\.[a-z]{2,4}$/g)) {
     errorMessage(
       "address",
       "L'adresse du courriel n'est pas valide (ne pas mettre d'espace)."

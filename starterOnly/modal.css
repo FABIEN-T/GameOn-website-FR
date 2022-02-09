@@ -577,8 +577,8 @@ footer {
   margin: 80px 30px;
 }
 
-/* Media queries de 769px à 1024px : ipad pro */
-@media screen and (max-width: 1024px) {
+/* Media queries de 769px à 1120px */
+@media screen and (max-width: 1120px) {
   .hero-headline {
     font-size: 70px;
     line-height: 80px;
