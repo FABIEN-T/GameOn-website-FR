@@ -61,6 +61,7 @@ inputsType.forEach((inputVar) => {
         e.target.value = e.target.value.replace(/[\s]+/g, " "); // remplace les espaces successifs au milieu de la chaîne par un seul espace
         e.target.value = e.target.value.replace(/[\-]+/g, "-"); // remplace de multiples tirets successifs par un seul tiret
         e.target.value = e.target.value.replace(/[\']+/g, "'"); // remplace de multiples apostrophes successifs par un seul apostrophe
+        e.target.value = e.target.value.replace(/[_^]/, "");
         firstNameChecker(e.target.value);
         break;
       case "last":

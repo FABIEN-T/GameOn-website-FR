@@ -50,7 +50,7 @@ function firstNameChecker(value) {
       "Veuillez entrer entre 2 et 40 caractères pour le champ Prénom."
     );
     firstNameValue = null;
-  } else if (!value.match(/^[a-zA-Z\s\-À-ÖØ-öø-ÿ']+$/)) {
+  } else if (!value.match(/^[a-zA-Z\s\-À-ÖØ-öø-ÿ'\^_]+$/)) {
     // regex exluant les caractères spéciaux et les chiffres
     errorMessage(
       "firstName",
