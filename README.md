@@ -10,6 +10,7 @@
 Ajouter la fonctionnalité au bouton (x)
 
 
+
 ## Issues (2)
 (1) Lier les labels aux entrées dans le HTML en utilisant les attributs "for" et "id" dans le code existant. Corriger le code HTML quand nécessaire.
 (2) Utiliser du JavaScript pur (pas de jQuery) pour terminer le formulaire :
