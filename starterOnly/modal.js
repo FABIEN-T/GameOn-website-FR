@@ -139,7 +139,6 @@ constForm.addEventListener("submit", (e) => {
   );
 
   // Envoi des valeurs de chaque champ (input) vers la fonction de test et validation
-
   firstNameChecker(firstNameValue);
   lastNameChecker(lastNameValue);
   mailChecker(emailValue);
@@ -147,28 +146,6 @@ constForm.addEventListener("submit", (e) => {
   quantityChecker(quantityValue);
   radioChecker(radioButtonValue);
   useChecker(useCheckValue);
-
-  // if (!firstNameValue) {
-  //   firstNameChecker(firstNameValue);
-  // }
-  // if (!lastNameValue) {
-  //   lastNameChecker(lastNameValue);
-  // }
-  // if (!emailValue) {
-  //   mailChecker(emailValue);
-  // }
-  // if (!birthDateValue) {
-  //   birthChecker(birthDateValue);
-  // }
-  // if (!quantityValue) {
-  //   quantityChecker(quantityValue);
-  // }
-  // if (!radioButtonValue) {
-  //   radioChecker(radioButtonValue);
-  // }
-  // if (!useCheckValue) {
-  //   useChecker(useCheckValue);
-  // }
   // SI tous les champs sont corrects
   if (
     firstNameValue &&
@@ -181,16 +158,14 @@ constForm.addEventListener("submit", (e) => {
   ) {
     // ALORS Fermeture de la Modale
     closeModal();
-    // Effacement des champs du formulaire
-    document.getElementById("form").reset();
-
-    // (firstNameValue = null),
-    //   (lastNameValue = null),
-    //   (emailValue = null),
-    //   (birthDateValue = null),
-    //   (quantityValue = null),
-    //   (radioButtonValue = null),
-    //   (useCheckValue = null);
+    // Effacement des champs du formulaire    
+    (firstNameValue = null),
+      (lastNameValue = null),
+      (emailValue = null),
+      (birthDateValue = null),
+      (quantityValue = null),
+      (radioButtonValue = null),
+      (useCheckValue = null);
     // Ouverture de la fenêtre de remerciements
     launchModalThanks();
     // Fermeture de la fenêtre de remerciements avec "clic" sur la Croix ou sur le Bouton "Fermer"
