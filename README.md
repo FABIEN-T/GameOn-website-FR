@@ -1,7 +1,7 @@
 # Projet GameOn
 
-[Lien GitHub pages](https://fabien-t.github.io/GameOn-website-FR/)
-***
+[Lien GitHub pages](https://fabien-t.github.io/GameOn-website-FR/starterOnly/)
+
 
 GameOn est une entreprise spécialisée dans les conférences et les concours de jeux.
 Mission : ajouter le code JavaScript manquant pour que le formulaire d'inscriton soit pleinement fonctionnel.
