@@ -111,13 +111,13 @@ inputsType.forEach((inputVar) => {
  * DÉCLARATION DES VARIABLES DE VALIDATION
  */
 
- let firstNameValue,
- lastNameValue,
- emailValue,
- birthDateValue,
- quantityValue,
- radioButtonValue,
- useCheckValue;
+let firstNameValue,
+  lastNameValue,
+  emailValue,
+  birthDateValue,
+  quantityValue,
+  radioButtonValue,
+  useCheckValue;
 
 /**
  * VALIDATION DU FORMULAIRE
@@ -127,7 +127,19 @@ inputsType.forEach((inputVar) => {
 constForm.addEventListener("submit", (e) => {
   e.preventDefault(); // empêche l'envoi du formulaire
 
+  console.log(
+    "SUBMIT",
+    firstNameValue,
+    lastNameValue,
+    emailValue,
+    birthDateValue,
+    quantityValue,
+    radioButtonValue,
+    useCheckValue
+  );
+
   // Envoi des valeurs de chaque champ (input) vers la fonction de test et validation
+
   firstNameChecker(firstNameValue);
   lastNameChecker(lastNameValue);
   mailChecker(emailValue);
@@ -136,6 +148,27 @@ constForm.addEventListener("submit", (e) => {
   radioChecker(radioButtonValue);
   useChecker(useCheckValue);
 
+  // if (!firstNameValue) {
+  //   firstNameChecker(firstNameValue);
+  // }
+  // if (!lastNameValue) {
+  //   lastNameChecker(lastNameValue);
+  // }
+  // if (!emailValue) {
+  //   mailChecker(emailValue);
+  // }
+  // if (!birthDateValue) {
+  //   birthChecker(birthDateValue);
+  // }
+  // if (!quantityValue) {
+  //   quantityChecker(quantityValue);
+  // }
+  // if (!radioButtonValue) {
+  //   radioChecker(radioButtonValue);
+  // }
+  // if (!useCheckValue) {
+  //   useChecker(useCheckValue);
+  // }
   // SI tous les champs sont corrects
   if (
     firstNameValue &&
@@ -150,6 +183,14 @@ constForm.addEventListener("submit", (e) => {
     closeModal();
     // Effacement des champs du formulaire
     document.getElementById("form").reset();
+
+    // (firstNameValue = null),
+    //   (lastNameValue = null),
+    //   (emailValue = null),
+    //   (birthDateValue = null),
+    //   (quantityValue = null),
+    //   (radioButtonValue = null),
+    //   (useCheckValue = null);
     // Ouverture de la fenêtre de remerciements
     launchModalThanks();
     // Fermeture de la fenêtre de remerciements avec "clic" sur la Croix ou sur le Bouton "Fermer"
