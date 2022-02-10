@@ -44,7 +44,6 @@ const constCloseSpan = document.querySelectorAll  (".formData > span");
 function closeModal() {
   modalBg.style.display = "none";
   document.getElementById("form").reset(); // Effacement des champs à la fermeture de la Modale
-  console.log(constCloseClass);
   // Boucle de suppression de la classe error
   for (element of constCloseClass) {
     element.classList.remove("error");
@@ -133,18 +132,7 @@ let firstNameValue,
 
 // Écoute du "click" sur le bouton "C'est parti" (submit : envoi du Formulaire)
 constForm.addEventListener("submit", (e) => {
-  e.preventDefault(); // empêche l'envoi du formulaire
-  console.log(
-    "SUBMIT",
-    firstNameValue,
-    lastNameValue,
-    emailValue,
-    birthDateValue,
-    quantityValue,
-    radioButtonValue,
-    useCheckValue
-  );
-
+  e.preventDefault(); // empêche l'envoi du formulaire  
   // Envoi des valeurs de chaque champ (input) vers la fonction de test et validation
   firstNameChecker(firstNameValue);
   lastNameChecker(lastNameValue);
@@ -165,7 +153,6 @@ constForm.addEventListener("submit", (e) => {
   ) {
     // ALORS Fermeture de la Modale
     closeModal();
-
     // Effacement des champs du formulaire    
     (firstNameValue = null),
       (lastNameValue = null),
@@ -174,14 +161,12 @@ constForm.addEventListener("submit", (e) => {
       (quantityValue = null),
       (radioButtonValue = null),
       (useCheckValue = null);
-    document.getElementById("form").reset(); 
-    
+    document.getElementById("form").reset();    
     // Ouverture de la fenêtre de remerciements
     launchModalThanks();
     function launchModalThanks() {
       modalBgThanks.style.display = "block";
     }
-
     // Fermeture de la fenêtre de remerciements avec "clic" sur la Croix ou sur le Bouton "Fermer"
     closeModalCrossThanks.addEventListener("click", closeModalThanks);
     closeModalBtnThanks.addEventListener("click", closeModalThanks);

@@ -40,7 +40,6 @@ function errorMessage(tag, message, valid) {
  * Issues(1) Le champ Prénom a un minimum de 2 caractères / n'est pas vide.
  */
 function firstNameChecker(value) {
-  // console.log(value);
   if (!value) {
     //Si la valeur n'est pas bonne, attribuer "null" à firstNameValue
     errorMessage("firstName", "Le champ Prénom doit être rempli");
@@ -63,7 +62,6 @@ function firstNameChecker(value) {
     errorMessage("firstName", "", true);
     firstNameValue = value.trim();
   }
-  console.log("First", firstNameValue);
 }
 
 /**
@@ -90,7 +88,6 @@ function lastNameChecker(value) {
     errorMessage("lastName", "", true);
     lastNameValue = value.trim();
   }
-  console.log("Last", lastNameValue);
 }
 
 /**
@@ -111,7 +108,6 @@ function mailChecker(value) {
     errorMessage("address", "", true);
     emailValue = value.trim();
   }
-  console.log("Email", emailValue);
 }
 
 /**
@@ -122,14 +118,12 @@ function birthChecker(value) {
     birthDateValue = null;
     errorMessage("birth", "Le champ date de naissance doit être rempli");
   } else if (!value.match(/[0-9]/)) {
-    console.log("la date est vide", value);
     errorMessage("birth", "Vous devez entrer votre date de naissance.");
     birthDateValue = null;
   } else {
     errorMessage("birth", "", true);
     birthDateValue = value;
   }
-  console.log("date", value);
 }
 
 /**
@@ -141,11 +135,9 @@ function quantityChecker(value) {
     errorMessage("number", "Le champ nombre de trournoi doit être rempli");
     quantityValue = null;
   } else if (!value.match(/^[0-9][0-9]?$/)) {
-    console.log("bad quantity", value);
     errorMessage("number", "Le chiffre doit être compris entre 0 et 99.");
     quantityValue = null;
   } else {
-    console.log("good quantity", value);
     errorMessage("number", "", true);
     quantityValue = value;
   }
@@ -158,22 +150,18 @@ function quantityChecker(value) {
 function radioChecker(value) {
   const constRadioClass = document.querySelector(".radioBtn");
   const constRadioSpan = document.querySelector(".radioBtn > span");
-  console.log("VALUE", value);
-
   if (!value) {
     // Si non valide : Ajout de la classe "error" permettant la mise en forme CSS en rouge du message
     constRadioClass.classList.add("error");
     // Ecriture du message d'erreur dans la balise span du document HTML
     constRadioSpan.textContent = "Vous devez choisir une ville.";
     radioButtonValue = null;
-    console.log("radiochecker NO", value);
   } else {
     // Si valide : Suppression de la classe "error" et de la mise en forme CSS en rouge du message
     constRadioClass.classList.remove("error");
     // Ecriture du message (vide) dans la balise span du document HTML
     constRadioSpan.textContent = "";
     radioButtonValue = value;
-    console.log("radiochecker OK", value);
   }
 }
 
@@ -189,16 +177,13 @@ function useChecker(value) {
     );
     useCheckValue = null;
   } else if (!document.getElementById("checkbox1").checked) {
-    console.log("décoché");
     errorMessage(
       "checkboxOne",
       "Vous devez vérifier que vous acceptez les termes et conditions d'utilisation."
     );
     useCheckValue = null;
   } else {
-    console.log("coché");
     errorMessage("checkboxOne", "", true);
     useCheckValue = value;
-    console.log("useCheckValue", useCheckValue);
   }
 }
