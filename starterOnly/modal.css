@@ -577,8 +577,8 @@ footer {
   margin: 80px 30px;
 }
 
-/* Media queries de 769px à 1120px */
-@media screen and (max-width: 1120px) {
+/* Media queries de 769px à 1424px */
+@media screen and (max-width: 1424px) {
   .hero-headline {
     font-size: 70px;
     line-height: 80px;
@@ -686,7 +686,7 @@ footer {
     background-color: #fe142f;
     text-decoration: underline;
     text-underline-position: under;
-    text-decoration-thickness: 4px;
+    text-decoration-thickness: 1px;
     color: #ffffff;
     border-radius: 15px;
     width: 100%;

@@ -26,7 +26,7 @@ const inputsType = document.querySelectorAll(
  * ET OUVERTURE OU FERMETURE DE LA FENÊTRE DE LA MODALE
  */
 
-// Ecoute du click sur les 2 boutons "Je M'incris" et lancement de la Modale
+// Ecoute du click sur les 2 boutons "Je M'inscris" et lancement de la Modale
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // Ouverture de la Modale
@@ -38,14 +38,22 @@ function launchModal() {
 closeModalBtn.addEventListener("click", closeModal);
 
 // Fermeture de la Modale
+const constCloseClass = document.querySelectorAll(".formData"); // Ajout du "." avant le nom de classe
+const constCloseSpan = document.querySelectorAll  (".formData > span");
+
 function closeModal() {
   modalBg.style.display = "none";
   document.getElementById("form").reset(); // Effacement des champs à la fermeture de la Modale
-}
-
-// Ouverture de le Fenêtre de remerciements
-function launchModalThanks() {
-  modalBgThanks.style.display = "block";
+  console.log(constCloseClass);
+  // Boucle de suppression de la classe error
+  for (element of constCloseClass) {
+    element.classList.remove("error");
+  } 
+  // Boucle de suppression des messages d'erreurs
+  for (element of constCloseSpan) {
+    element.textContent = "";
+  }
+  
 }
 
 /**
@@ -157,6 +165,7 @@ constForm.addEventListener("submit", (e) => {
   ) {
     // ALORS Fermeture de la Modale
     closeModal();
+
     // Effacement des champs du formulaire    
     (firstNameValue = null),
       (lastNameValue = null),
@@ -165,8 +174,14 @@ constForm.addEventListener("submit", (e) => {
       (quantityValue = null),
       (radioButtonValue = null),
       (useCheckValue = null);
+    document.getElementById("form").reset(); 
+    
     // Ouverture de la fenêtre de remerciements
     launchModalThanks();
+    function launchModalThanks() {
+      modalBgThanks.style.display = "block";
+    }
+
     // Fermeture de la fenêtre de remerciements avec "clic" sur la Croix ou sur le Bouton "Fermer"
     closeModalCrossThanks.addEventListener("click", closeModalThanks);
     closeModalBtnThanks.addEventListener("click", closeModalThanks);

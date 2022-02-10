@@ -40,6 +40,7 @@ function errorMessage(tag, message, valid) {
  * Issues(1) Le champ Prénom a un minimum de 2 caractères / n'est pas vide.
  */
 function firstNameChecker(value) {
+  // console.log(value);
   if (!value) {
     //Si la valeur n'est pas bonne, attribuer "null" à firstNameValue
     errorMessage("firstName", "Le champ Prénom doit être rempli");
@@ -103,7 +104,7 @@ function mailChecker(value) {
   } else if (!value.match(/^[\w\._-]+@[\w-]+\.[a-z]{2,4}$/g)) {
     errorMessage(
       "address",
-      "L'adresse du courriel n'est pas valide (ne pas mettre d'espace)."
+      "L'adresse du courriel n'est pas valide (ne pas mettre d'espace ni de caractères accentués)."
     );
     emailValue = null;
   } else {
