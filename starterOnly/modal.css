@@ -54,7 +54,7 @@ p {
   color: #000000;
   text-align: center;
   padding: 12px 12px;
-  margin: 5px;
+  margin: 5px 10px 5px 0px;
   text-decoration: none;
   font-size: 18px;
   font-family: Roboto, sans-serif;
@@ -218,11 +218,10 @@ input[data-error]::after {
     color: red;
 }
 
-/* Bordure rouge sur les champs du formulaire */
+/* Couleur rouge pour le texte et bordure rouge sur les champs du formulaire */
 .error input {
   color: #ff4e60;
   border: 2px solid #fe142f;
-  /* rgba(255, 0, 0, 0.527) */
 }
 
 /* Mise en forme des messages d'erreurs */
@@ -235,6 +234,7 @@ input[data-error]::after {
   margin-top: -5px;
   margin-bottom: -8px;
 }
+
 
 .checkbox-label,
 .checkbox2-label {
@@ -792,7 +792,7 @@ footer {
 /* Media queries de 338px à 540px : Mobile */
 @media screen and (max-width: 540px) {
   .topnav {
-    margin: 33px 20px 0px;
+    margin: 30px 20px 0px;
   }
 
   .topnav.responsive a {
@@ -805,7 +805,7 @@ footer {
 
   .topnav a.icon {
     right: 20px;
-    top: 15px;
+    top: 12px;
     margin-right: 0px;
   }
 
@@ -866,7 +866,7 @@ footer {
   }
 }
 
-/* Animation de l'apparitionde la Modale */
+/* Animation de l'apparition de la Modale */
 @keyframes modalopen {
   from {
     opacity: 0;

@@ -51,8 +51,7 @@ function closeModal() {
   // Boucle de suppression des messages d'erreurs
   for (element of constCloseSpan) {
     element.textContent = "";
-  }
-  
+  }  
 }
 
 /**
@@ -167,7 +166,7 @@ constForm.addEventListener("submit", (e) => {
     function launchModalThanks() {
       modalBgThanks.style.display = "block";
     }
-    // Fermeture de la fenêtre de remerciements avec "clic" sur la Croix ou sur le Bouton "Fermer"
+    // Écoute du "click" sur la Croix ou sur le bouton "Fermer" et fermeture de la fenêtre de remerciements
     closeModalCrossThanks.addEventListener("click", closeModalThanks);
     closeModalBtnThanks.addEventListener("click", closeModalThanks);
     function closeModalThanks() {
